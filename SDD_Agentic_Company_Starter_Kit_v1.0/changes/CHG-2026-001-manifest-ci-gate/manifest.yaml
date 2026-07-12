@@ -11,6 +11,7 @@ requirements:
   - OPS-REL-001
 declared_files:
   - KIT_MANIFEST.json
+  - changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - .github/workflows/sdd-quality-gates.yml
   - scripts/build_kit_manifest.py
   - scripts/README.md

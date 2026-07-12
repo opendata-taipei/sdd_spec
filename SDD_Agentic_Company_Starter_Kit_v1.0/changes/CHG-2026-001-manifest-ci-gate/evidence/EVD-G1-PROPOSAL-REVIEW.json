@@ -1,0 +1,15 @@
+{
+  "evidence_id": "EVD-G1-PROPOSAL-REVIEW",
+  "change_id": "CHG-2026-001",
+  "type": "review",
+  "uri": "changes/CHG-2026-001-manifest-ci-gate/proposal.md",
+  "sha256": "40ffa668dfd4e13d432c4197e3b76e587d08e90fdface0c9a26b7c83003c4b36",
+  "produced_at": "2026-07-12T14:41:11.7397250Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [],
+  "result": "pass"
+}
