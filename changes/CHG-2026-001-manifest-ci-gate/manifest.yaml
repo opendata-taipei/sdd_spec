@@ -23,3 +23,9 @@ declared_files:
   - docs/governance/18_Enterprise_Pilot_Integration_v1.3.md
   - reports/CHG-2026-001-manifest-ci-gate-test-report.md
   - changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-IMPLEMENTATION-TESTS.json
+  - changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-CI-SUCCESS.json
+  - reports/CHG-2026-001-manifest-ci-gate-ci-report.md
+  - changes/CHG-2026-001-manifest-ci-gate/closure-report.md
+  - changes/CHG-2026-001-manifest-ci-gate/release-plan.md
+  - CHANGELOG.md
+  - README.md

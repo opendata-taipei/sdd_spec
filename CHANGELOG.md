@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.1 - 2026-07-13
+
+- 將 Starter Kit 提升至 repository root，使 GitHub Actions 可直接執行。
+- 新增可重建、唯讀檢查且跨平台確定排序的 Kit Manifest Gate。
+- 新增 Manifest drift、runtime report 排除、唯讀、效能與公開身分資料回歸測試。
+- 公開角色映射只保留 placeholder；真實 GitHub／IAM mapping 留在私有部署環境。
+- 修正 pip cache dependency path 與 Linux `README.md` filename casing。
+- 完成 CHG-2026-001 規格驗證 Pilot 與 GitHub Actions Linux 證據鏈。
+
 ## 1.4.0 - 2026-07-12
 
 - 新增 Agent Runtime Audit bundle 與 Context/Tool/Guardrail schemas。

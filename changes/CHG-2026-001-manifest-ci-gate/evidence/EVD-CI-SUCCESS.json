@@ -1,0 +1,20 @@
+{
+  "evidence_id": "EVD-CI-SUCCESS",
+  "change_id": "CHG-2026-001",
+  "type": "build",
+  "uri": "reports/CHG-2026-001-manifest-ci-gate-ci-report.md",
+  "sha256": "f108622d2ef3051eebee21506e2f68fa2d34214df8211fb0455d840380b42558",
+  "produced_at": "2026-07-12T16:04:18.2352413Z",
+  "producer": "github-actions",
+  "tool": {
+    "name": "SDD Quality Gates",
+    "version": "run-29199300932"
+  },
+  "requirements": [
+    "REQ-MANIFEST-001",
+    "NFR-PERF-001",
+    "SEC-APP-001",
+    "OPS-REL-001"
+  ],
+  "result": "pass"
+}

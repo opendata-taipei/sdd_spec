@@ -55,7 +55,7 @@ def expected_manifest(version: str) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build or verify KIT_MANIFEST.json")
-    parser.add_argument("--version", default="1.4.0")
+    parser.add_argument("--version", default="1.4.1")
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     expected = expected_manifest(args.version)

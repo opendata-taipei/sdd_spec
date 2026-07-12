@@ -1,4 +1,4 @@
-# SDD／Agentic 公司級 Starter Kit v1.4
+# SDD／Agentic 公司級 Starter Kit v1.4.1
 
 這是一套可直接納入公司 Git Repository 的 **Spec-Driven Development（SDD）與 Agentic Engineering** 基礎架構。
 
