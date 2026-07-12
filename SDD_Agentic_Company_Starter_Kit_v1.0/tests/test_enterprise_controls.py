@@ -3,8 +3,8 @@ import json
 import shutil
 import subprocess
 import sys
+import tempfile
 import unittest
-import uuid
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -16,14 +16,10 @@ CHANGE = "changes/CHG-EXAMPLE-001-add-account-lockout"
 class EnterpriseControlTests(unittest.TestCase):
     @contextmanager
     def fixture(self):
-        base = SOURCE / "reports" / f"test-{uuid.uuid4().hex}"
-        target = base / "kit"
-        base.mkdir(parents=True)
-        shutil.copytree(SOURCE, target, ignore=shutil.ignore_patterns("__pycache__", "reports", "latest.json"))
-        try:
+        with tempfile.TemporaryDirectory(prefix="sdd-enterprise-test-") as base:
+            target = Path(base) / "kit"
+            shutil.copytree(SOURCE, target, ignore=shutil.ignore_patterns("__pycache__", "reports", "latest.json"))
             yield target
-        finally:
-            shutil.rmtree(base, ignore_errors=True)
 
     def validate(self, root: Path) -> subprocess.CompletedProcess[str]:
         return subprocess.run([sys.executable, str(root / "scripts/validate_enterprise.py")],
@@ -35,6 +31,14 @@ class EnterpriseControlTests(unittest.TestCase):
             result = self.validate(root)
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("requires approved G3_DESIGN", result.stdout)
+
+    def test_text_evidence_hash_is_line_ending_stable(self):
+        with self.fixture() as root:
+            path = root / CHANGE / "proposal.md"
+            content = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+            path.write_bytes(content.replace("\n", "\r\n").encode("utf-8"))
+            result = self.validate(root)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_untrusted_identity_is_rejected(self):
         with self.fixture() as root:

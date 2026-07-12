@@ -8,6 +8,8 @@
 - 新增 Runtime Audit Schema validator 與 CI Artifact 保存。
 - 新增 Run-to-Evidence promotion，並追加 `EVIDENCE_ADDED` Change Event。
 - 新增 Runtime Audit 完整性與敏感資料回歸測試。
+- Evidence 文字檔 hash 採 LF 正規化，避免 Windows／Unix 換行差異造成誤判。
+- 發布 Manifest 更新為可重建、可驗證的 v1.4.0 完整檔案清單。
 
 ## 1.3.0 - 2026-07-12
 

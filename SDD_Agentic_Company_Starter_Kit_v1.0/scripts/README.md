@@ -11,6 +11,7 @@
 - `resolve_github_role.py`：依受保護的 GitHub actor/role mapping 解析 Gate 核准角色。
 - `runtime_audit.py`／`validate_runtime_audit.py`：建立並驗證 Agent Run、Context、Tool、Guardrail 與輸出稽核包。
 - `run_to_evidence.py`：將完成的 Agent Run 提升為可供 Gate 引用的 Evidence。
+- `build_kit_manifest.py`：重建或以 `--check` 驗證套件版本與完整檔案清單。
 
 - `bootstrap_change.py`：從 `_template` 建立新 Change。
 - `validate_sdd.py`：檢查必要文件、State、Requirement／Task／Test 基本追溯。

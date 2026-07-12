@@ -3,8 +3,8 @@ import json
 import shutil
 import subprocess
 import sys
+import tempfile
 import unittest
-import uuid
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,23 +38,23 @@ class RuntimeAuditTests(unittest.TestCase):
             if runs.exists() and not any(runs.iterdir()): runs.rmdir()
 
     def test_evidence_promotion_appends_event(self):
-        base = ROOT / "reports" / f"promotion-test-{uuid.uuid4().hex}"
-        copy = base / "kit"
-        base.mkdir(parents=True)
-        shutil.copytree(ROOT, copy, ignore=shutil.ignore_patterns("reports", "__pycache__"))
-        sys.path.insert(0, str(copy / "scripts"))
-        try:
-            audit = AuditRun(copy, "CHG-EXAMPLE-001", "test-agent", "reference", "test", "1.0",
-                             [copy / "evals/datasets/governance-baseline.jsonl"])
-            audit.finalize("completed", {"passed": True})
-            event_path = copy / "changes/CHG-EXAMPLE-001-add-account-lockout/events.jsonl"
-            before = len(event_path.read_text(encoding="utf-8").splitlines())
-            result = subprocess.run([sys.executable, str(copy / "scripts/run_to_evidence.py"),
-                                     "--run", audit.run_id, "--change", "CHG-EXAMPLE-001"],
-                                    cwd=copy, text=True, capture_output=True)
-            self.assertEqual(result.returncode, 0, result.stderr)
-            after = len(event_path.read_text(encoding="utf-8").splitlines())
-            self.assertEqual(after, before + 1)
-            self.assertIn('"event_type": "EVIDENCE_ADDED"', event_path.read_text(encoding="utf-8"))
-        finally:
-            shutil.rmtree(base, ignore_errors=True)
+        with tempfile.TemporaryDirectory(prefix="sdd-promotion-test-") as base:
+            copy = Path(base) / "kit"
+            shutil.copytree(ROOT, copy, ignore=shutil.ignore_patterns("reports", "__pycache__"))
+            script_path = str(copy / "scripts")
+            sys.path.insert(0, script_path)
+            try:
+                audit = AuditRun(copy, "CHG-EXAMPLE-001", "test-agent", "reference", "test", "1.0",
+                                 [copy / "evals/datasets/governance-baseline.jsonl"])
+                audit.finalize("completed", {"passed": True})
+                event_path = copy / "changes/CHG-EXAMPLE-001-add-account-lockout/events.jsonl"
+                before = len(event_path.read_text(encoding="utf-8").splitlines())
+                result = subprocess.run([sys.executable, str(copy / "scripts/run_to_evidence.py"),
+                                         "--run", audit.run_id, "--change", "CHG-EXAMPLE-001"],
+                                        cwd=copy, text=True, capture_output=True)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                after = len(event_path.read_text(encoding="utf-8").splitlines())
+                self.assertEqual(after, before + 1)
+                self.assertIn('"event_type": "EVIDENCE_ADDED"', event_path.read_text(encoding="utf-8"))
+            finally:
+                sys.path.remove(script_path)

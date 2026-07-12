@@ -1,4 +1,4 @@
-# SDD／Agentic 公司級 Starter Kit v1.0
+# SDD／Agentic 公司級 Starter Kit v1.4
 
 這是一套可直接納入公司 Git Repository 的 **Spec-Driven Development（SDD）與 Agentic Engineering** 基礎架構。
 
@@ -42,6 +42,9 @@ python scripts/build_context_pack.py --change CHG-2026-001
 
 # 6. 在 Git Repository 中檢查未規格化變更
 python scripts/drift_check.py --change CHG-2026-001
+
+# 7. 確認發布 Manifest 與實際套件內容一致
+python scripts/build_kit_manifest.py --check
 ```
 
 ## 推薦執行順序

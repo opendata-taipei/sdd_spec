@@ -17,6 +17,16 @@ POLICY = json.loads((ROOT / "config" / "enterprise-policy.json").read_text(encod
 errors: list[str] = []
 warnings: list[str] = []
 
+TEXT_EVIDENCE_SUFFIXES = {
+    ".csv", ".json", ".jsonl", ".md", ".txt", ".yaml", ".yml",
+}
+
+def evidence_sha256(path: Path) -> str:
+    content = path.read_bytes()
+    if path.suffix.lower() in TEXT_EVIDENCE_SUFFIXES:
+        content = content.replace(b"\r\n", b"\n")
+    return hashlib.sha256(content).hexdigest()
+
 def load_json(path: Path) -> dict:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -88,7 +98,7 @@ for change_dir in sorted((ROOT / "changes").iterdir()):
         uri = record.get("uri", "")
         artifact = ROOT / uri
         if artifact.is_file():
-            actual = hashlib.sha256(artifact.read_bytes()).hexdigest()
+            actual = evidence_sha256(artifact)
             if actual.lower() != record.get("sha256", "").lower():
                 errors.append(f"{change_dir.name}: evidence {eid} hash mismatch for {uri}")
         elif "://" not in uri or uri.split("://", 1)[0] not in POLICY["evidence"]["external_uri_schemes"]:
