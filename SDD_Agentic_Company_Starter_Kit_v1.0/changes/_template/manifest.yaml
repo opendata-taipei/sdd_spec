@@ -1,0 +1,12 @@
+change_id: "{{CHANGE_ID}}"
+title: "{{TITLE}}"
+risk_level: L2
+owner: REPLACE_ME
+authors:
+  - REPLACE_ME
+requirements:
+  - REQ-GENERIC-001
+  - NFR-PERF-001
+  - SEC-APP-001
+  - OPS-REL-001
+declared_files: []

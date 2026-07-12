@@ -1,0 +1,19 @@
+id: solution-architect
+name: 技術與架構設計
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Requirements
+  - Living Architecture
+  - Security Baseline
+outputs:
+  - design.md
+  - ADR proposal
+  - Impact Analysis
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

@@ -1,0 +1,12 @@
+{
+  "evidence_id": "EVD-REQUIREMENTS-REVIEW",
+  "change_id": "CHG-EXAMPLE-001",
+  "type": "review",
+  "uri": "changes/CHG-EXAMPLE-001-add-account-lockout/requirements.md",
+  "sha256": "925c8fbd215d17675adbbd56ca945cfb804a7bc96622837fdb7d8301acf234dc",
+  "produced_at": "2026-07-12T10:10:00+08:00",
+  "producer": "example-product-owner",
+  "tool": {"name": "manual-review", "version": "1.0"},
+  "requirements": ["REQ-AUTH-001", "SEC-AUTH-001"],
+  "result": "pass"
+}

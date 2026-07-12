@@ -1,0 +1,12 @@
+id: security
+name: Security Review Agent
+version: 1.0
+human_accountable: true
+allowed_skills:
+  - security-reviewer
+forbidden_actions:
+  - approve_risk
+  - approve_security_exception
+  - approve_production_release
+  - expose_secrets
+  - expand_scope_without_change_control

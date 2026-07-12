@@ -1,0 +1,12 @@
+{
+  "evidence_id": "EVD-DESIGN-REVIEW",
+  "change_id": "CHG-EXAMPLE-001",
+  "type": "review",
+  "uri": "changes/CHG-EXAMPLE-001-add-account-lockout/design.md",
+  "sha256": "9994c02fae38b2d8c086f5b4712e251189d8417dbc435151e6076df117f3c882",
+  "produced_at": "2026-07-12T10:20:00+08:00",
+  "producer": "example-architect",
+  "tool": {"name": "architecture-review", "version": "1.0"},
+  "requirements": ["REQ-AUTH-001", "SEC-AUTH-001"],
+  "result": "pass"
+}

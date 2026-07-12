@@ -1,0 +1,16 @@
+{
+  "change_id": "CHG-YYYY-NNN",
+  "status": "IMPLEMENTING",
+  "current_task": "TASK-001",
+  "authoritative_files_read": [],
+  "completed_actions": [],
+  "modified_files": [],
+  "test_evidence": [],
+  "decisions": [],
+  "assumptions": [],
+  "risks": [],
+  "blockers": [],
+  "failed_approaches": [],
+  "next_step": "",
+  "human_decision_required": false
+}

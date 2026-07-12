@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0",
+  "actors": {
+    "REPLACE_WITH_GITHUB_LOGIN": ["product_owner"]
+  },
+  "note": "Replace placeholders and protect this file with CODEOWNERS before enabling approval workflow. Teams should generate this mapping from enterprise IAM."
+}

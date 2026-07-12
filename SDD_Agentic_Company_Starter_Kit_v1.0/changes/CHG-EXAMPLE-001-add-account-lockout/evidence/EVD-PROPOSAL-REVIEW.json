@@ -1,0 +1,12 @@
+{
+  "evidence_id": "EVD-PROPOSAL-REVIEW",
+  "change_id": "CHG-EXAMPLE-001",
+  "type": "review",
+  "uri": "changes/CHG-EXAMPLE-001-add-account-lockout/proposal.md",
+  "sha256": "7e94a8c94868c1eba0442183b0860c3a764f5a3c72e8778bf5887e7296c4e084",
+  "produced_at": "2026-07-12T10:00:00+08:00",
+  "producer": "example-product-owner",
+  "tool": {"name": "manual-review", "version": "1.0"},
+  "requirements": [],
+  "result": "pass"
+}

@@ -1,0 +1,25 @@
+gates:
+  G0_TRIAGE:
+    owner: product
+    evidence: [risk_level, change_owner, business_problem]
+  G1_PROPOSAL:
+    owner: product
+    evidence: [approved_proposal, scope, success_metrics]
+  G2_REQUIREMENTS:
+    owner: product
+    evidence: [requirements, nfr, acceptance_criteria, traceability]
+  G3_DESIGN:
+    owner: architecture
+    evidence: [technical_design, impact_analysis, rollback, adr_if_required]
+  G4_READY:
+    owner: engineering
+    evidence: [tasks, dependencies, test_plan, definition_of_ready]
+  G5_IMPLEMENTATION:
+    owner: engineering
+    evidence: [code_review, test_results, security_results]
+  G6_RELEASE:
+    owner: operations
+    evidence: [release_plan, rollback_plan, monitoring, go_no_go]
+  G7_CLOSURE:
+    owner: product
+    evidence: [living_spec_sync, drift_report, closure_report, lessons_learned]

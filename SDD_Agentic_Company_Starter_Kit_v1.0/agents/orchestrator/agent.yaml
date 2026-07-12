@@ -1,0 +1,21 @@
+id: orchestrator
+name: SDD Orchestrator
+version: 1.0
+human_accountable: true
+allowed_skills:
+  - intake-triage
+  - requirements-analyst
+  - solution-architect
+  - task-planner
+  - implementation-engineer
+  - test-engineer
+  - security-reviewer
+  - drift-auditor
+  - release-manager
+  - closure-curator
+forbidden_actions:
+  - approve_risk
+  - approve_security_exception
+  - approve_production_release
+  - expose_secrets
+  - expand_scope_without_change_control

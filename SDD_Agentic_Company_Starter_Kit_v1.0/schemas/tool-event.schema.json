@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Tool Event",
+  "type": "object", "additionalProperties": false,
+  "required": ["event_id", "run_id", "occurred_at", "tool", "action", "decision", "request_sha256"],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^TLE-[A-Z0-9-]+$"},
+    "run_id": {"type": "string", "pattern": "^RUN-[A-Z0-9-]+$"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "tool": {"type": "string"}, "action": {"type": "string"},
+    "decision": {"enum": ["allowed", "blocked", "failed"]},
+    "request_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "response_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "duration_ms": {"type": "integer", "minimum": 0},
+    "error": {"type": ["string", "null"]}
+  }
+}

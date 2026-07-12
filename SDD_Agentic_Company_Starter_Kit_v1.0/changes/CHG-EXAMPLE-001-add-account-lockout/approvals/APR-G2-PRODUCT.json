@@ -1,0 +1,6 @@
+{
+  "approval_id": "APR-G2-PRODUCT", "change_id": "CHG-EXAMPLE-001", "gate": "G2_REQUIREMENTS",
+  "decision": "approved", "actor_id": "example-product-owner", "actor_role": "product_owner",
+  "decided_at": "2026-07-12T10:15:00+08:00", "evidence_ids": ["EVD-REQUIREMENTS-REVIEW"],
+  "identity_provider": "example-oidc", "identity_claim": null, "commit_sha": null
+}

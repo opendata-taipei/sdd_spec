@@ -1,0 +1,66 @@
+name: SDD Gate Approval
+
+on:
+  workflow_dispatch:
+    inputs:
+      change:
+        description: Change ID
+        required: true
+      gate:
+        description: Gate ID, for example G3_DESIGN
+        required: true
+      evidence_ids:
+        description: Space-separated Evidence IDs
+        required: true
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  create-approval:
+    runs-on: ubuntu-latest
+    environment: sdd-approval
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-governance.txt
+      - name: Resolve role from protected mapping
+        id: role
+        env:
+          ACTOR: ${{ github.actor }}
+          GATE: ${{ inputs.gate }}
+        run: echo "role=$(python scripts/resolve_github_role.py --actor "$ACTOR" --gate "$GATE")" >> "$GITHUB_OUTPUT"
+      - name: Request and reduce GitHub OIDC claims
+        run: |
+          curl --fail --silent --show-error -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sdd-approval" -o oidc.json
+          python - <<'PY'
+          import base64, json, os
+          token=json.load(open('oidc.json', encoding='utf-8'))['value']
+          payload=token.split('.')[1]; payload += '=' * (-len(payload) % 4)
+          claims=json.loads(base64.urlsafe_b64decode(payload))
+          selected={k:claims.get(k) for k in ('iss','aud','sub','actor','actor_id','repository','repository_id','job_workflow_ref','run_id','jti','exp')}
+          assert selected['iss']=='https://token.actions.githubusercontent.com'
+          assert selected['aud']=='sdd-approval'
+          assert selected['actor']==os.environ['GITHUB_ACTOR']
+          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8') as f:
+              f.write('SDD_IDENTITY_CLAIM='+json.dumps(selected,separators=(',',':'))+'\n')
+          PY
+      - name: Create approval from trusted workflow context
+        env:
+          SDD_ACTOR_ID: ${{ github.actor }}
+          SDD_ACTOR_ROLE: ${{ steps.role.outputs.role }}
+          SDD_IDENTITY_PROVIDER: github-oidc
+          SDD_COMMIT_SHA: ${{ github.sha }}
+        run: python scripts/create_approval.py --change "${{ inputs.change }}" --gate "${{ inputs.gate }}" --evidence ${{ inputs.evidence_ids }}
+      - name: Validate generated approval
+        run: python scripts/validate_enterprise.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sdd-approval-${{ inputs.change }}-${{ inputs.gate }}
+          path: changes/*/approvals/*.json
+          if-no-files-found: error
+          retention-days: 90

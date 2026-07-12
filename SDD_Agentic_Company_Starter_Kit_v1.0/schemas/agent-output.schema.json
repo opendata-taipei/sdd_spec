@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Output Contract",
+  "type": "object",
+  "required": [
+    "change_id",
+    "phase",
+    "authoritative_files_read",
+    "actions",
+    "evidence",
+    "risks",
+    "next_step"
+  ],
+  "properties": {
+    "change_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authoritative_files_read": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_decision_required": {
+      "type": "boolean"
+    },
+    "next_step": {
+      "type": "string"
+    },
+    "handoff_summary": {
+      "type": "string"
+    }
+  }
+}

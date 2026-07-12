@@ -1,0 +1,19 @@
+id: requirements-analyst
+name: 需求分析
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Proposal
+  - Living Specs
+  - Stakeholder Constraints
+outputs:
+  - requirements.md
+  - nfr.md
+  - Traceability 初稿
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Gate Approval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["approval_id", "change_id", "gate", "decision", "actor_id", "actor_role", "decided_at", "evidence_ids", "identity_provider", "identity_claim", "commit_sha"],
+  "properties": {
+    "approval_id": {"type": "string", "pattern": "^APR-[A-Z0-9-]+$"},
+    "change_id": {"type": "string"},
+    "gate": {"pattern": "^G[1-7]_[A-Z_]+$"},
+    "decision": {"enum": ["approved", "rejected", "revoked"]},
+    "actor_id": {"type": "string", "minLength": 3},
+    "actor_role": {"type": "string"},
+    "decided_at": {"type": "string", "format": "date-time"},
+    "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "identity_provider": {"type": "string", "minLength": 1},
+    "commit_sha": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{40}$"},
+    "identity_claim": {"type": ["string", "null"]}
+  }
+}

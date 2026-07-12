@@ -1,0 +1,19 @@
+id: closure-curator
+name: 結案與知識沉澱
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Completed Change
+  - Drift Report
+  - Release Evidence
+outputs:
+  - closure-report.md
+  - Living Spec Updates
+  - Knowledge Archive
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

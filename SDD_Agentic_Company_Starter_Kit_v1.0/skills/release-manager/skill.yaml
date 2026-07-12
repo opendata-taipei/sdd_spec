@@ -1,0 +1,19 @@
+id: release-manager
+name: 發布與回滾管理
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Release Plan
+  - Test Evidence
+  - Operations Baseline
+outputs:
+  - Go/No-Go Pack
+  - Runbook
+  - Post-release Checklist
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

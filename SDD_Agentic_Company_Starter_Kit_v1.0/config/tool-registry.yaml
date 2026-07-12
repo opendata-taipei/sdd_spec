@@ -1,0 +1,31 @@
+tools:
+  repository_read:
+    class: read_only
+    approval: none
+  repository_write:
+    class: controlled_write
+    approval: task_scope
+  test_runner:
+    class: execution
+    approval: none_in_sandbox
+  security_scanner:
+    class: execution
+    approval: none_in_sandbox
+  git_commit:
+    class: write
+    approval: human_or_policy
+  pull_request:
+    class: external_write
+    approval: human_or_policy
+  production_deploy:
+    class: privileged
+    approval: human_required
+  secret_store:
+    class: privileged
+    approval: human_required
+
+rules:
+  - Agents may not request or expose raw production secrets.
+  - Tools must operate with least privilege.
+  - Read and write scopes must be logged in execution state.
+  - Production actions require explicit human approval and auditable identity.

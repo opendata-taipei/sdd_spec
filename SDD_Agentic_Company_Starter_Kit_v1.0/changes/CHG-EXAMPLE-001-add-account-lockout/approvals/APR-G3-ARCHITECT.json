@@ -1,0 +1,6 @@
+{
+  "approval_id": "APR-G3-ARCHITECT", "change_id": "CHG-EXAMPLE-001", "gate": "G3_DESIGN",
+  "decision": "approved", "actor_id": "example-architect", "actor_role": "architect",
+  "decided_at": "2026-07-12T10:25:00+08:00", "evidence_ids": ["EVD-DESIGN-REVIEW"],
+  "identity_provider": "example-oidc", "identity_claim": null, "commit_sha": null
+}
