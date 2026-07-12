@@ -14,9 +14,12 @@ declared_files:
   - KIT_MANIFEST.json
   - changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-G2-REQUIREMENTS-REVIEW.json
+  - changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-G3-DESIGN-REVIEW.json
   - .github/workflows/sdd-quality-gates.yml
   - scripts/build_kit_manifest.py
   - scripts/README.md
   - tests/test_kit_manifest.py
   - config/github-role-map.json
   - docs/governance/18_Enterprise_Pilot_Integration_v1.3.md
+  - reports/CHG-2026-001-manifest-ci-gate-test-report.md
+  - changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-IMPLEMENTATION-TESTS.json

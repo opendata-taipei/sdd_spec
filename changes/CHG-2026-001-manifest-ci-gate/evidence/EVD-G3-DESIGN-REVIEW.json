@@ -1,0 +1,21 @@
+{
+  "evidence_id": "EVD-G3-DESIGN-REVIEW",
+  "change_id": "CHG-2026-001",
+  "type": "review",
+  "uri": "changes/CHG-2026-001-manifest-ci-gate/design.md",
+  "sha256": "fe88a0159e7ef56985a1bf86a51b091642ec00878d87b0a83fd0dbdb150c65d1",
+  "produced_at": "2026-07-12T15:46:51.4171003Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [
+    "REQ-MANIFEST-001",
+    "REQ-IDENTITY-PRIVACY-001",
+    "NFR-PERF-001",
+    "SEC-APP-001",
+    "OPS-REL-001"
+  ],
+  "result": "pass"
+}

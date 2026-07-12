@@ -18,7 +18,13 @@ class EnterpriseControlTests(unittest.TestCase):
     def fixture(self):
         with tempfile.TemporaryDirectory(prefix="sdd-enterprise-test-") as base:
             target = Path(base) / "kit"
-            shutil.copytree(SOURCE, target, ignore=shutil.ignore_patterns("__pycache__", "reports", "latest.json"))
+            shutil.copytree(
+                SOURCE,
+                target,
+                ignore=shutil.ignore_patterns(
+                    "__pycache__", "runs", "test-*", "promotion-test-*", "latest.json"
+                ),
+            )
             yield target
 
     def validate(self, root: Path) -> subprocess.CompletedProcess[str]:

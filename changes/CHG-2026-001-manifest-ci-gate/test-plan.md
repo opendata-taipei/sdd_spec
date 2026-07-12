@@ -2,8 +2,8 @@
 
 ## Entry Criteria
 
-- [ ] Requirement 與 Design 已核准
-- [ ] Test Environment 與 Data 可用
+- [x] Requirement 與 Design 已核准
+- [x] Test Environment 與 Data 可用
 
 ## Test Cases
 
@@ -17,6 +17,6 @@
 
 ## Exit Criteria
 
-- [ ] 所有 Must Requirement 已通過
-- [ ] 無未接受的 Critical／High Defect
-- [ ] 測試證據已保存
+- [x] 所有 Must Requirement 已通過
+- [x] 無未接受的 Critical／High Defect
+- [x] 測試證據已保存

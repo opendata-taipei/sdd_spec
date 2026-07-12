@@ -1,0 +1,21 @@
+{
+  "evidence_id": "EVD-IMPLEMENTATION-TESTS",
+  "change_id": "CHG-2026-001",
+  "type": "test",
+  "uri": "reports/CHG-2026-001-manifest-ci-gate-test-report.md",
+  "sha256": "ee2c9acc6e20f9532de742fc71010c1735d44ea0fe744b9572a89f1d83097781",
+  "produced_at": "2026-07-12T15:51:41.6963128Z",
+  "producer": "codex-local-verification",
+  "tool": {
+    "name": "sdd-quality-gates",
+    "version": "1.4.0"
+  },
+  "requirements": [
+    "REQ-MANIFEST-001",
+    "REQ-IDENTITY-PRIVACY-001",
+    "NFR-PERF-001",
+    "SEC-APP-001",
+    "OPS-REL-001"
+  ],
+  "result": "pass"
+}

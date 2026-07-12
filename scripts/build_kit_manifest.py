@@ -23,6 +23,10 @@ IGNORED_RUNTIME_PREFIXES = {
 IGNORED_RUNTIME_FILES = {"reports/evals/latest.json"}
 
 
+def manifest_sort_key(value: str) -> tuple[str, str]:
+    return value.casefold(), value
+
+
 def kit_files() -> list[str]:
     files = []
     for path in ROOT.rglob("*"):
@@ -36,7 +40,7 @@ def kit_files() -> list[str]:
         ):
             continue
         files.append(relative)
-    return sorted(files, key=str.casefold)
+    return sorted(files, key=manifest_sort_key)
 
 
 def expected_manifest(version: str) -> dict:

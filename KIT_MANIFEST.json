@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.4.0",
-  "file_count": 186,
+  "file_count": 190,
   "files": [
     ".editorconfig",
     ".github/CODEOWNERS",
@@ -64,6 +64,8 @@
     "changes/CHG-2026-001-manifest-ci-gate/events.jsonl",
     "changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-G1-PROPOSAL-REVIEW.json",
     "changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-G2-REQUIREMENTS-REVIEW.json",
+    "changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-G3-DESIGN-REVIEW.json",
+    "changes/CHG-2026-001-manifest-ci-gate/evidence/EVD-IMPLEMENTATION-TESTS.json",
     "changes/CHG-2026-001-manifest-ci-gate/evidence/README.md",
     "changes/CHG-2026-001-manifest-ci-gate/manifest.yaml",
     "changes/CHG-2026-001-manifest-ci-gate/nfr.md",
@@ -129,6 +131,7 @@
     "KIT_MANIFEST.json",
     "Makefile",
     "README.md",
+    "reports/CHG-2026-001-manifest-ci-gate-test-report.md",
     "reports/context/CHG-EXAMPLE-001-add-account-lockout-context-pack.md",
     "reports/README.md",
     "requirements-governance.txt",
@@ -188,6 +191,7 @@
     "specs/living/README.md",
     "specs/living/security/security-baseline.md",
     "tests/test_enterprise_controls.py",
+    "tests/test_kit_manifest.py",
     "tests/test_runtime_audit.py"
   ]
 }
