@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0",
+  "actors": {
+    "REPLACE_WITH_GITHUB_LOGIN": ["product_owner"]
+  },
+  "note": "Public templates must keep fictional actors or placeholders. Inject real mappings only in a private deployment repository or protected configuration, generate them from enterprise IAM, and protect them with CODEOWNERS."
+}

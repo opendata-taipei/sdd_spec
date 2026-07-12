@@ -3,8 +3,8 @@
   "change_id": "CHG-2026-001",
   "type": "review",
   "uri": "changes/CHG-2026-001-manifest-ci-gate/proposal.md",
-  "sha256": "40ffa668dfd4e13d432c4197e3b76e587d08e90fdface0c9a26b7c83003c4b36",
-  "produced_at": "2026-07-12T14:41:11.7397250Z",
+  "sha256": "b1158569e07958632de9343d14ffe9433387d094ad3a8aa718043f4f87cc7a71",
+  "produced_at": "2026-07-12T15:20:25.2222586Z",
   "producer": "Justin",
   "tool": {
     "name": "manual-review",

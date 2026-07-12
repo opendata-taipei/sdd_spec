@@ -8,6 +8,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "KIT_MANIFEST.json"
 IGNORED_PARTS = {".git", ".venv", "__pycache__"}
+IGNORED_TOP_LEVEL = {
+    ".agents",
+    ".codex",
+    ".skills",
+    "SDD原始來源研究文件包_v1.0",
+}
+IGNORED_ROOT_FILES = {"LICENSE", "SDD_規格開發架構.png"}
+IGNORED_RUNTIME_PREFIXES = {
+    "reports/runs/",
+    "reports/test-",
+    "reports/promotion-test-",
+}
+IGNORED_RUNTIME_FILES = {"reports/evals/latest.json"}
 
 
 def kit_files() -> list[str]:
@@ -16,7 +29,11 @@ def kit_files() -> list[str]:
         if not path.is_file() or any(part in IGNORED_PARTS for part in path.parts):
             continue
         relative = path.relative_to(ROOT).as_posix()
-        if relative.startswith(("reports/test-", "reports/promotion-test-")):
+        if relative.split("/", 1)[0] in IGNORED_TOP_LEVEL or relative in IGNORED_ROOT_FILES:
+            continue
+        if relative in IGNORED_RUNTIME_FILES or any(
+            relative.startswith(prefix) for prefix in IGNORED_RUNTIME_PREFIXES
+        ):
             continue
         files.append(relative)
     return sorted(files, key=str.casefold)

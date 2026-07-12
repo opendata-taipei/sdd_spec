@@ -6,6 +6,7 @@ authors:
   - Justin
 requirements:
   - REQ-MANIFEST-001
+  - REQ-IDENTITY-PRIVACY-001
   - NFR-PERF-001
   - SEC-APP-001
   - OPS-REL-001
@@ -16,3 +17,5 @@ declared_files:
   - scripts/build_kit_manifest.py
   - scripts/README.md
   - tests/test_kit_manifest.py
+  - config/github-role-map.json
+  - docs/governance/18_Enterprise_Pilot_Integration_v1.3.md

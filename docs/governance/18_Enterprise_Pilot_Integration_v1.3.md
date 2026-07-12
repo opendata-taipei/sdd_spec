@@ -11,6 +11,14 @@
 
 `id-token: write` 只允許 workflow 取得 OIDC token；實際權限仍由受保護 workflow、Environment、角色映射與 CODEOWNERS 決定。
 
+### 身分資料最小揭露
+
+- 公開 Starter Kit、範例與文件只能保存虛構 actor 或 placeholder，不得列出真實 GitHub login、Email、企業帳號或完整 OIDC claims。
+- `config/github-role-map.json` 是部署範本；真實 actor／role mapping 應由導入公司的私有 Repository、受保護設定或企業 IAM 同步產生。
+- GitHub login 雖通常不是秘密，但角色映射會揭露人員、專案與核准權限關聯，應視為內部授權中繼資料並採最小揭露。
+- 正式環境應優先以受保護 Team、不可變 actor ID 或企業 IAM subject 綁定權限；顯示名稱只能作為輔助資訊，不得作為唯一授權依據。
+- Approval Evidence 只保存驗證所需的縮減 claims 與 commit SHA；不得保存原始 OIDC token、Access Token 或不必要的個人資料。
+
 ## Append-only Event Store
 
 - `events.jsonl` 是變更歷史的 append-only 來源。
