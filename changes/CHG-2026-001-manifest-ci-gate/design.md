@@ -9,7 +9,7 @@
 | Design ID | Requirement | 設計內容 |
 |---|---|---|
 | DES-001 | REQ-MANIFEST-001 | 在 `sdd-quality-gates.yml` 新增 `python scripts/build_kit_manifest.py --check` step |
-| DES-002 | NFR-PERF-001, SEC-APP-001, OPS-REL-001 | 延用無網路的 Path 掃描，固定輸出 POSIX 相對路徑，加入 subprocess 回歸測試 |
+| DES-002 | NFR-PERF-001, SEC-APP-001, OPS-REL-001 | 延用無網路的 Path 掃描，明確排除非發布與 Runtime 路徑，固定輸出 POSIX 相對路徑與穩定排序，加入 subprocess 回歸測試 |
 | DES-003 | REQ-IDENTITY-PRIVACY-001 | 公開 role map 僅保留 placeholder；真實 mapping 由私有部署 Repository、受保護設定或企業 IAM 注入 |
 
 ## Current / Target Architecture

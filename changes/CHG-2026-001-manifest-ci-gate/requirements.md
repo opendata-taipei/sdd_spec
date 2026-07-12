@@ -11,6 +11,8 @@
   - AC-001：Manifest 版本、檔案數量與完整清單正確時，命令回傳 0。
   - AC-002：新增或刪除受管檔案而未重建 Manifest 時，命令回傳非 0 並提示重建命令。
   - AC-003：CI 在 portability check 前執行此檢查，且不修改工作區。
+  - AC-007：受管範圍為 repo root 的 Starter Kit 發布檔案；明確排除 `.git`、虛擬環境、Python cache、本機 Codex／Agent 設定、研究來源附件與 Runtime／Test reports。
+  - AC-008：檔案清單 SHALL 使用 POSIX 相對路徑與不區分大小寫的穩定排序，使相同 fixture 在 Windows 與 Linux 產生相同結果。
 
 ### REQ-IDENTITY-PRIVACY-001
 
@@ -28,3 +30,6 @@
 |---|---|---|---|---|
 | REQ-MANIFEST-001 | DES-001 | TASK-001 | TEST-MANIFEST-001, TEST-MANIFEST-002 | Draft |
 | REQ-IDENTITY-PRIVACY-001 | DES-003 | TASK-005 | TEST-IDENTITY-001 | Draft |
+| NFR-PERF-001 | DES-002 | TASK-003 | TEST-MANIFEST-003 | Draft |
+| SEC-APP-001 | DES-002, DES-003 | TASK-003, TASK-005 | TEST-MANIFEST-003, TEST-IDENTITY-001 | Draft |
+| OPS-REL-001 | DES-002 | TASK-002 | TEST-MANIFEST-002, TEST-MANIFEST-004 | Draft |
