@@ -1,0 +1,17 @@
+change_id: "CHG-2026-001"
+title: "Manifest Ci Gate"
+risk_level: L2
+owner: Justin
+authors:
+  - Justin
+requirements:
+  - REQ-MANIFEST-001
+  - NFR-PERF-001
+  - SEC-APP-001
+  - OPS-REL-001
+declared_files:
+  - KIT_MANIFEST.json
+  - .github/workflows/sdd-quality-gates.yml
+  - scripts/build_kit_manifest.py
+  - scripts/README.md
+  - tests/test_kit_manifest.py

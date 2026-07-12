@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "change_id": "CHG-2026-001",
+  "title": "Manifest Ci Gate",
+  "risk_level": "L2",
+  "status": "DRAFT",
+  "current_phase": "PROPOSAL",
+  "current_task": null,
+  "requirements_in_scope": [],
+  "authoritative_files_read": [],
+  "modified_files": [],
+  "tests": [],
+  "decisions": [],
+  "risks": [],
+  "blockers": [],
+  "next_step": "完成 Proposal 並提交 G1",
+  "updated_by": "Justin",
+  "updated_at": "2026-07-12T22:19:09.131365+08:00"
+}
