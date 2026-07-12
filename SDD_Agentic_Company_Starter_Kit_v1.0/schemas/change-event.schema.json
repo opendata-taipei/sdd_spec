@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Append-only Change Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "change_id", "sequence", "event_type", "occurred_at", "actor_id", "actor_role", "payload", "previous_hash", "event_hash"],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^EVT-[A-Z0-9-]+$"},
+    "change_id": {"type": "string"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "event_type": {"enum": ["STATE_SNAPSHOT", "STATE_TRANSITIONED", "EVIDENCE_ADDED", "EVIDENCE_INVALIDATED", "APPROVAL_GRANTED", "APPROVAL_REVOKED", "RISK_CHANGED", "RELEASE_STARTED", "ROLLBACK_STARTED", "CHANGE_CLOSED"]},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "actor_id": {"type": "string", "minLength": 1},
+    "actor_role": {"type": "string", "minLength": 1},
+    "payload": {"type": "object"},
+    "previous_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "event_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "commit_sha": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{40}$"}
+  }
+}

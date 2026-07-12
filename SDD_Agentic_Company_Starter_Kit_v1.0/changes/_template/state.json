@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "change_id": "{{CHANGE_ID}}",
+  "title": "{{TITLE}}",
+  "risk_level": "L2",
+  "status": "DRAFT",
+  "current_phase": "PROPOSAL",
+  "current_task": null,
+  "requirements_in_scope": [],
+  "authoritative_files_read": [],
+  "modified_files": [],
+  "tests": [],
+  "decisions": [],
+  "risks": [],
+  "blockers": [],
+  "next_step": "完成 Proposal 並提交 G1",
+  "updated_by": "human-or-agent-id",
+  "updated_at": "YYYY-MM-DDTHH:MM:SS+08:00"
+}

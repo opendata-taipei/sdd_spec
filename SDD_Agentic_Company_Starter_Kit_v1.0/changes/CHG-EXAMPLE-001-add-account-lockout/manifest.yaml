@@ -1,0 +1,13 @@
+change_id: CHG-EXAMPLE-001
+title: Add Account Lockout
+risk_level: L2
+owner: REPLACE_ME
+authors:
+  - example-engineer
+requirements:
+  - REQ-AUTH-001
+  - SEC-AUTH-001
+  - NFR-AUTH-001
+  - SEC-AUTH-002
+  - OPS-AUTH-001
+declared_files: []

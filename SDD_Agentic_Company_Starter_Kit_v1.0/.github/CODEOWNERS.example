@@ -1,0 +1,8 @@
+# Rename to CODEOWNERS and replace team names.
+/constitution/ @company/architecture @company/security @company/engineering
+/docs/governance/ @company/sdd-governance
+/specs/living/ @company/architecture @company/product
+/changes/ @company/product @company/engineering
+/adr/ @company/architecture
+/.github/workflows/ @company/devops @company/security
+/scripts/ @company/platform

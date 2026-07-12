@@ -1,0 +1,43 @@
+name: SDD Quality Gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate-sdd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install governance validators
+        run: python -m pip install -r requirements-governance.txt
+      - name: Validate SDD structure
+        run: python scripts/validate_sdd.py
+      - name: Enforce enterprise approvals and evidence
+        run: python scripts/validate_enterprise.py
+      - name: Test enterprise control failures
+        run: python -m unittest discover -s tests -v
+      - name: Validate agent assurance baseline
+        run: python scripts/run_evals.py
+      - name: Execute agent governance evals
+        run: python scripts/run_agent_evals.py
+      - name: Validate runtime audit bundle
+        run: python scripts/validate_runtime_audit.py
+      - name: Upload runtime audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-runtime-audit-${{ github.run_id }}
+          path: reports/runs/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Check AI/tool portability
+        run: python scripts/portability_check.py
+      - name: Verify Python control scripts compile
+        run: python -m compileall -q scripts evals/adapters tests

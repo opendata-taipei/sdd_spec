@@ -1,0 +1,22 @@
+project:
+  id: PROJECT-001
+  name: REPLACE_ME
+  repository: REPLACE_ME
+  default_branch: main
+  timezone: Asia/Taipei
+  language: zh-TW
+
+owners:
+  business: REPLACE_ME
+  product: REPLACE_ME
+  architecture: REPLACE_ME
+  engineering: REPLACE_ME
+  security: REPLACE_ME
+  qa: REPLACE_ME
+  operations: REPLACE_ME
+
+sdd:
+  change_id_pattern: '^CHG-[0-9]{4}-[0-9]{3,}$'
+  requirement_id_pattern: '^(REQ|NFR|SEC|DATA|OPS)-[A-Z0-9-]+-[0-9]{3,}$'
+  authoritative_spec_format: markdown
+  execution_state_file: state.json

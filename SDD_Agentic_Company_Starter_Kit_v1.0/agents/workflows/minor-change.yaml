@@ -1,0 +1,17 @@
+id: minor-change
+eligibility:
+  risk_level: [L0, L1]
+  forbidden_if:
+    - public_api_change
+    - schema_migration
+    - sensitive_data
+    - security_control_change
+    - production_outage_risk
+steps:
+  - proposal_and_requirement_summary
+  - task_and_test
+  - implementation
+  - peer_review
+  - test
+  - drift_check
+  - closure

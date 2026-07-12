@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.4",
+  "fail_on_warnings": true,
+  "allowed_roles": [
+    "product_owner", "architect", "engineering_lead", "qa_lead",
+    "security_owner", "operations_owner", "release_manager", "auditor"
+  ],
+  "gate_policy": {
+    "G1_PROPOSAL": {"roles": ["product_owner"], "min_approvals": 1},
+    "G2_REQUIREMENTS": {"roles": ["product_owner"], "min_approvals": 1},
+    "G3_DESIGN": {"roles": ["architect"], "min_approvals": 1},
+    "G4_READY": {"roles": ["engineering_lead"], "min_approvals": 1},
+    "G5_IMPLEMENTATION": {"roles": ["engineering_lead", "qa_lead", "security_owner"], "min_approvals": 2},
+    "G6_RELEASE": {"roles": ["operations_owner", "release_manager"], "min_approvals": 2},
+    "G7_CLOSURE": {"roles": ["product_owner", "auditor"], "min_approvals": 1}
+  },
+  "required_gate_for_target": {
+    "REQUIREMENTS_REVIEW": "G1_PROPOSAL",
+    "DESIGN_REVIEW": "G2_REQUIREMENTS",
+    "READY_FOR_IMPLEMENTATION": "G3_DESIGN",
+    "IMPLEMENTING": "G4_READY",
+    "RELEASE_READY": "G5_IMPLEMENTATION",
+    "RELEASING": "G6_RELEASE",
+    "CLOSED": "G7_CLOSURE"
+  },
+  "high_risk": {
+    "levels": ["L3", "L4"],
+    "separation_of_duties": true,
+    "immutable_evidence_required": true,
+    "author_cannot_approve": true,
+    "producer_cannot_approve_own_evidence": true,
+    "mutually_exclusive_roles": [
+      ["engineering_lead", "qa_lead"],
+      ["engineering_lead", "security_owner"]
+    ]
+  },
+  "trusted_identity": {
+    "providers": ["github-oidc", "gitlab-oidc", "azure-ad", "company-oidc"],
+    "require_commit_sha": true,
+    "allow_example_identity_for_example_changes": true
+  },
+  "evidence": {
+    "external_uri_schemes": ["https", "s3", "gs", "artifact"],
+    "require_local_hash_match": true
+  }
+}

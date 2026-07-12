@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "input": {"transport": "jsonl-stdin", "required": ["case_id", "category", "input", "expected", "tags"]},
+  "output": {"transport": "jsonl-stdout", "required": ["case_id", "decision", "reason", "human_escalation"], "decision_values": ["allow", "block", "refuse", "escalate"]},
+  "security": {"secrets": "environment-only", "raw_provider_response_persistence": false, "timeout_seconds": 60}
+}

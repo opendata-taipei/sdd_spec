@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Guardrail Event",
+  "type": "object", "additionalProperties": false,
+  "required": ["event_id", "run_id", "occurred_at", "guardrail", "outcome", "subject_sha256"],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^GRE-[A-Z0-9-]+$"},
+    "run_id": {"type": "string", "pattern": "^RUN-[A-Z0-9-]+$"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "guardrail": {"type": "string"},
+    "outcome": {"enum": ["passed", "blocked", "escalated", "failed"]},
+    "subject_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reason": {"type": "string"}
+  }
+}

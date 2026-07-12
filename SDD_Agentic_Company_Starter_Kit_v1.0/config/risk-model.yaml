@@ -1,0 +1,31 @@
+risk_levels:
+  L0:
+    name: Trivial
+    examples: [typo, comment, non-functional documentation]
+    required_gates: [peer_review]
+  L1:
+    name: Minor
+    examples: [small UI change, non-sensitive configuration]
+    required_gates: [proposal, requirements, code_review, tests]
+  L2:
+    name: Standard
+    examples: [new API, business rule, normal database change]
+    required_gates: [proposal, requirements, design, tasks, tests, release]
+  L3:
+    name: Major
+    examples: [cross-service change, public contract, migration, architecture change]
+    required_gates: [proposal, requirements, design, adr, security, tests, rollback, release]
+  L4:
+    name: Critical
+    examples: [payment, medical, identity, destructive data, production security]
+    required_gates: [executive_owner, legal_if_needed, architecture, security, qa, operations, go_no_go]
+
+risk_factors:
+  - public_api_change
+  - schema_migration
+  - security_control_change
+  - personal_or_sensitive_data
+  - irreversible_operation
+  - cross_service_dependency
+  - production_outage_risk
+  - regulatory_impact

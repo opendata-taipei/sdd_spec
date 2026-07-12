@@ -1,0 +1,20 @@
+id: drift-auditor
+name: 規格漂移稽核
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Git Diff
+  - Manifest
+  - Specs
+  - Tests
+outputs:
+  - Drift Report
+  - Sync Actions
+  - Blocking Findings
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

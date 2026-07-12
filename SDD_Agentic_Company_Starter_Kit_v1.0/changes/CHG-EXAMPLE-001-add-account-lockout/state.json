@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "change_id": "CHG-EXAMPLE-001",
+  "title": "Add Account Lockout",
+  "risk_level": "L2",
+  "status": "READY_FOR_IMPLEMENTATION",
+  "current_phase": "TASKS",
+  "current_task": null,
+  "requirements_in_scope": [
+    "REQ-AUTH-001",
+    "SEC-AUTH-001",
+    "NFR-AUTH-001",
+    "SEC-AUTH-002",
+    "OPS-AUTH-001"
+  ],
+  "authoritative_files_read": [
+    "constitution/project-constitution.md",
+    "changes/CHG-EXAMPLE-001-add-account-lockout/requirements.md"
+  ],
+  "modified_files": [],
+  "tests": [],
+  "decisions": [],
+  "risks": [],
+  "blockers": [],
+  "next_step": "執行 TASK-001，先建立失敗測試",
+  "updated_by": "human-or-agent-id",
+  "updated_at": "YYYY-MM-DDTHH:MM:SS+08:00"
+}

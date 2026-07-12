@@ -1,0 +1,20 @@
+id: intake-triage
+name: 需求受理與風險分級
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - 原始請求
+  - Project Constitution
+  - Risk Model
+outputs:
+  - Risk Classification
+  - Change ID 建議
+  - 缺失資訊
+  - Gate List
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

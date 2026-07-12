@@ -1,0 +1,14 @@
+id: emergency-change
+principles:
+  - restore_service_or_reduce_immediate_risk
+  - preserve_audit_trail
+  - require_named_incident_commander
+  - prohibit_ai_only_approval
+steps:
+  - incident_or_emergency_id
+  - minimum_risk_assessment
+  - authorized_fix
+  - mandatory_verification
+  - monitored_release
+  - post_change_spec_within_policy_deadline
+  - root_cause_and_living_spec_sync

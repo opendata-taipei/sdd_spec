@@ -1,0 +1,22 @@
+# Scripts
+
+## Enterprise controls
+
+- `validate_enterprise.py`：檢查 Gate Approval、角色、Evidence 引用與 hash、Manifest/State 一致性。
+- `run_evals.py`：檢查供應商中立的 Agent assurance baseline。
+- `transition_state.py`：依狀態機移轉，並在關鍵階段強制檢查 Gate Approval；須提供 `--actor-role`。
+- `create_approval.py`：只從 `SDD_ACTOR_ID`、`SDD_ACTOR_ROLE`、`SDD_IDENTITY_PROVIDER`、`SDD_IDENTITY_CLAIM` 與 `SDD_COMMIT_SHA` 等 CI/OIDC context 建立正式核准。
+- `run_agent_evals.py`：透過 JSONL adapter protocol 實際執行跨供應商 Agent 治理評測。
+- `init_event_store.py`／`append_event.py`／`reduce_state.py`：初始化、追加及驗證 hash-chained Change Event Store。
+- `resolve_github_role.py`：依受保護的 GitHub actor/role mapping 解析 Gate 核准角色。
+- `runtime_audit.py`／`validate_runtime_audit.py`：建立並驗證 Agent Run、Context、Tool、Guardrail 與輸出稽核包。
+- `run_to_evidence.py`：將完成的 Agent Run 提升為可供 Gate 引用的 Evidence。
+
+- `bootstrap_change.py`：從 `_template` 建立新 Change。
+- `validate_sdd.py`：檢查必要文件、State、Requirement／Task／Test 基本追溯。
+- `portability_check.py`：檢查正式規格是否依賴聊天記錄、私有記憶或工具專用命令。
+- `drift_check.py`：比較 Git Diff 與 `manifest.yaml` 的 `declared_files`。
+- `build_context_pack.py`：建立可供不同 AI／人員載入的工具中立 Context Pack。
+- `transition_state.py`：依合法狀態機更新 Change State 並記錄 Actor／Evidence。
+
+這些腳本是最低限度的 Starter Validation，不取代正式 Schema Validator、SAST、DAST、Contract Test 或公司既有 CI/CD Controls。

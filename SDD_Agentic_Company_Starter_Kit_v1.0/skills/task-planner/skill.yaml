@@ -1,0 +1,19 @@
+id: task-planner
+name: 任務拆解與排程
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Design
+  - Requirements
+  - Test Strategy
+outputs:
+  - tasks.md
+  - Dependency Graph
+  - Execution Plan
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

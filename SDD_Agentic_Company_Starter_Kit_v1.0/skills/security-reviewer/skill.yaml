@@ -1,0 +1,20 @@
+id: security-reviewer
+name: 安全審查
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Constitution
+  - Design
+  - Code Diff
+  - Scan Results
+outputs:
+  - Security Findings
+  - Required Controls
+  - Human Decision Requests
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

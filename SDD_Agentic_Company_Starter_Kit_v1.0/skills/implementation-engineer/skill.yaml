@@ -1,0 +1,20 @@
+id: implementation-engineer
+name: 規格化實作
+version: 1.0
+vendor_neutral: true
+requires_human_approval: false
+inputs:
+  - Approved Task
+  - Design
+  - Codebase
+outputs:
+  - Code Changes
+  - Test Results
+  - State Update
+  - Handoff
+stop_conditions:
+  - specification_conflict
+  - scope_expansion
+  - irreversible_change_without_approval
+  - security_exception
+  - production_privilege_required

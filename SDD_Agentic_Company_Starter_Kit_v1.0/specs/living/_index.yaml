@@ -1,0 +1,13 @@
+specs:
+  - id: SYS-ARCH-001
+    path: architecture/system-context.md
+    owner: architecture
+    status: draft
+  - id: SYS-SEC-001
+    path: security/security-baseline.md
+    owner: security
+    status: draft
+  - id: SYS-OPS-001
+    path: operations/operational-baseline.md
+    owner: operations
+    status: draft

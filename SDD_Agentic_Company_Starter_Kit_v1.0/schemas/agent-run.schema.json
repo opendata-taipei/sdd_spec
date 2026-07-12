@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Execution Audit Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "change_id", "agent_id", "started_at", "status", "model", "instruction_version", "tool_events", "guardrail_events"],
+  "properties": {
+    "run_id": {"type": "string", "pattern": "^RUN-[A-Z0-9-]+$"},
+    "change_id": {"type": "string"},
+    "task_id": {"type": ["string", "null"]},
+    "agent_id": {"type": "string"},
+    "started_at": {"type": "string", "format": "date-time"},
+    "ended_at": {"type": ["string", "null"], "format": "date-time"},
+    "status": {"enum": ["running", "completed", "failed", "escalated", "blocked"]},
+    "model": {"type": "object", "additionalProperties": false, "required": ["provider", "name"], "properties": {"provider": {"type": "string"}, "name": {"type": "string"}, "version": {"type": "string"}}},
+    "instruction_version": {"type": "string"},
+    "context_sources": {"type": "array", "items": {"type": "string"}},
+    "tool_events": {"type": "array", "items": {"type": "string", "pattern": "^TLE-[A-Z0-9-]+$"}},
+    "guardrail_events": {"type": "array", "items": {"type": "string", "pattern": "^GRE-[A-Z0-9-]+$"}},
+    "usage": {"type": "object", "additionalProperties": false, "properties": {"input_tokens": {"type": "integer", "minimum": 0}, "output_tokens": {"type": "integer", "minimum": 0}, "cost_usd": {"type": "number", "minimum": 0}}},
+    "human_escalation": {"type": ["object", "null"]}
+  }
+}

@@ -1,0 +1,39 @@
+name: SDD Change Request
+description: 建立新的 SDD Change Intake
+title: "[CHG] "
+labels: ["sdd", "change-request"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 問題與背景
+      description: 說明要解決的業務或技術問題，不要先指定解法。
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: 預期成果與成功指標
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: 初步風險等級
+      options: [L0, L1, L2, L3, L4, 不確定]
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: In Scope／Out of Scope
+  - type: checkboxes
+    id: impacts
+    attributes:
+      label: 可能影響
+      options:
+        - label: Public API／Event Contract
+        - label: Database／Data Migration
+        - label: Security／Privacy
+        - label: Production Availability
+        - label: External Vendor／Legal

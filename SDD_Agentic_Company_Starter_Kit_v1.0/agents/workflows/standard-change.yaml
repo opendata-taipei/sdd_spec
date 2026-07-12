@@ -1,0 +1,39 @@
+id: standard-change
+states:
+  - DRAFT
+  - PROPOSAL_REVIEW
+  - REQUIREMENTS_REVIEW
+  - DESIGN_REVIEW
+  - READY_FOR_IMPLEMENTATION
+  - IMPLEMENTING
+  - VERIFYING
+  - RELEASE_READY
+  - RELEASING
+  - MONITORING
+  - CLOSED
+steps:
+  - agent: change-manager
+    skill: intake-triage
+  - agent: business-analyst
+    skill: requirements-analyst
+    gate: G2_REQUIREMENTS
+  - agent: architect
+    skill: solution-architect
+    gate: G3_DESIGN
+  - agent: engineer
+    skill: task-planner
+    gate: G4_READY
+  - agent: engineer
+    skill: implementation-engineer
+  - agent: qa
+    skill: test-engineer
+  - agent: security
+    skill: security-reviewer
+  - agent: drift
+    skill: drift-auditor
+  - agent: release
+    skill: release-manager
+    gate: G6_RELEASE
+  - agent: knowledge
+    skill: closure-curator
+    gate: G7_CLOSURE

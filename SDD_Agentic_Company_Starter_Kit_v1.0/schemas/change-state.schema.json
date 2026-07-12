@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Change State",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "change_id",
+    "status",
+    "current_phase",
+    "modified_files",
+    "next_step"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "change_id": {
+      "type": "string",
+      "pattern": "^CHG-[0-9]{4}-[0-9]{3,}$|^CHG-EXAMPLE-[0-9]{3,}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "risk_level": {
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "PROPOSAL_REVIEW",
+        "REQUIREMENTS_REVIEW",
+        "DESIGN_REVIEW",
+        "READY_FOR_IMPLEMENTATION",
+        "IMPLEMENTING",
+        "VERIFYING",
+        "RELEASE_READY",
+        "RELEASING",
+        "MONITORING",
+        "CLOSED",
+        "BLOCKED",
+        "REJECTED",
+        "ROLLED_BACK",
+        "CANCELLED"
+      ]
+    },
+    "current_phase": {
+      "type": "string"
+    },
+    "current_task": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requirements_in_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authoritative_files_read": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modified_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests": {
+      "type": "array"
+    },
+    "decisions": {
+      "type": "array"
+    },
+    "risks": {
+      "type": "array"
+    },
+    "blockers": {
+      "type": "array"
+    },
+    "next_step": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  }
+}

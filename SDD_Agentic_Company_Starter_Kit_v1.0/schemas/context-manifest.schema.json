@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Context Manifest",
+  "type": "object", "additionalProperties": false,
+  "required": ["run_id", "sources"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "sources": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["uri", "sha256", "classification"],
+      "properties": {"uri": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "classification": {"enum": ["public", "internal", "confidential", "restricted"]}}
+    }}
+  }
+}

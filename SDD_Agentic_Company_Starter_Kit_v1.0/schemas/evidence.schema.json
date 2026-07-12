@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Evidence Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "change_id", "type", "uri", "sha256", "produced_at", "producer", "tool"],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^EVD-[A-Z0-9-]+$"},
+    "change_id": {"type": "string", "pattern": "^CHG-(?:[0-9]{4}|EXAMPLE)-[0-9]{3,}$"},
+    "type": {"enum": ["review", "test", "security_scan", "build", "release", "monitoring", "drift", "approval"]},
+    "uri": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"},
+    "produced_at": {"type": "string", "format": "date-time"},
+    "producer": {"type": "string", "minLength": 1},
+    "tool": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {"name": {"type": "string"}, "version": {"type": "string"}}
+    },
+    "requirements": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "result": {"enum": ["pass", "fail", "informational"]}
+  }
+}
