@@ -16,7 +16,7 @@
 | TEST-PACKAGE-005 | REQ-PACKAGE-PORTABLE-001 | Round trip | 無 `.git` 解壓目錄執行核心 validators | 全部回傳 0 | CI log |
 | TEST-PACKAGE-006 | NFR-PERF-002 | Performance | 目前 Manifest 規模 build／verify | 各 10 秒內 | CI timing |
 | TEST-PACKAGE-007 | REQ-PACKAGE-001, OPS-REL-002 | Canonicalization | LF／CRLF／CR 與 UTF-8 BOM 文字 fixture、binary fixture | 文字 archive bytes 相同；binary bytes 不變 | unittest output |
-| TEST-PACKAGE-008 | REQ-PACKAGE-VERIFY-001, SEC-PACKAGE-001 | Resource safety | encrypted、directory、NUL、backslash、entry count／size mismatch 與 oversized fixture | verify fail closed，目的目錄保持不存在或為空 | security test report |
+| TEST-PACKAGE-008 | REQ-PACKAGE-VERIFY-001, SEC-PACKAGE-001 | Resource／path safety | encrypted、directory、NUL、backslash、Unicode／casefold collision、Windows device name、entry count／size mismatch 與 oversized fixture | verify fail closed，staging 被清除，目的目錄保持不存在 | security test report |
 
 ## Exit Criteria
 

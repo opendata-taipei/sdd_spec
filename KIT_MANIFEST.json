@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 209,
+  "file_count": 210,
   "files": [
     ".editorconfig",
     ".github/CODEOWNERS",
@@ -81,6 +81,7 @@
     "changes/CHG-2026-002-starter-kit-packaging/design.md",
     "changes/CHG-2026-002-starter-kit-packaging/events.jsonl",
     "changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G1-PROPOSAL-REVIEW.json",
+    "changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G2-REQUIREMENTS-REVIEW.json",
     "changes/CHG-2026-002-starter-kit-packaging/evidence/README.md",
     "changes/CHG-2026-002-starter-kit-packaging/manifest.yaml",
     "changes/CHG-2026-002-starter-kit-packaging/nfr.md",

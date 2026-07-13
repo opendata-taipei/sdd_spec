@@ -1,0 +1,22 @@
+{
+  "evidence_id": "EVD-G2-REQUIREMENTS-REVIEW",
+  "change_id": "CHG-2026-002",
+  "type": "review",
+  "uri": "changes/CHG-2026-002-starter-kit-packaging/requirements.md",
+  "sha256": "386977f9465a929996050663f1a29e3c22721ef770982dd8bb8e8d81ca874b9e",
+  "produced_at": "2026-07-13T15:47:13.7923377Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [
+    "REQ-PACKAGE-001",
+    "REQ-PACKAGE-VERIFY-001",
+    "REQ-PACKAGE-PORTABLE-001",
+    "NFR-PERF-002",
+    "SEC-PACKAGE-001",
+    "OPS-REL-002"
+  ],
+  "result": "pass"
+}
