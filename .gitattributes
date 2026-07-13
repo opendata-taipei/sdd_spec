@@ -1,0 +1,7 @@
+# A clean checkout of the same commit must expose identical logical text bytes
+# on Windows and Linux before deterministic packaging.
+* text=auto eol=lf
+
+# Extensionless release inputs are text and must never inherit platform EOL.
+Makefile text eol=lf
+CODEOWNERS text eol=lf

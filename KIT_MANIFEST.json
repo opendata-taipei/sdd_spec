@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 215,
+  "file_count": 216,
   "files": [
     ".agents/skills/_shared/skill-contract.md",
     ".agents/skills/closure-curator/SKILL.md",
@@ -23,6 +23,7 @@
     ".agents/skills/task-planner/SKILL.md",
     ".agents/skills/task-planner/skill.yaml",
     ".editorconfig",
+    ".gitattributes",
     ".github/CODEOWNERS",
     ".github/CODEOWNERS.example",
     ".github/ISSUE_TEMPLATE/change-request.yml",

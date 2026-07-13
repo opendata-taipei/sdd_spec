@@ -19,6 +19,8 @@ python scripts/package_starter_kit.py build
 
 封裝器只讀取 Manifest 列出的 regular files，不跟隨 symlink 或 junction。核准文字格式會移除 UTF-8 BOM 並正規化成 LF；其他檔案保持原始 bytes。ZIP 使用固定時間、Unix `0644`、`ZIP_STORED` 與 canonical entry order，因此 archive filename 以外的執行環境差異不影響 ZIP bytes。
 
+Repository 的 `.gitattributes` 另強制文字檔在 Windows／Linux 都以 LF checkout，涵蓋 `Makefile` 與 `CODEOWNERS` 等無副檔名文字輸入；此政策是相同 commit 能產生相同 source bytes 的前置條件。
+
 既有輸出預設不覆寫；只有維護者明確提供 `--force` 才可替換。
 
 ## Verify and Extract

@@ -105,6 +105,12 @@ class KitManifestTests(unittest.TestCase):
             self.assertRegex(frontmatter, r"(?m)^name: [a-z0-9-]+$")
             self.assertRegex(frontmatter, r"(?m)^description: .+$")
 
+    def test_extensionless_release_text_has_cross_platform_lf_policy(self):
+        attributes = (SOURCE / ".gitattributes").read_text(encoding="utf-8")
+        self.assertIn("* text=auto eol=lf", attributes)
+        self.assertIn("Makefile text eol=lf", attributes)
+        self.assertIn("CODEOWNERS text eol=lf", attributes)
+
     def test_sorting_has_case_sensitive_tie_breaker(self):
         module = load_manifest_module()
         values = ["z.txt", "A.txt", "a.txt", "B.txt"]
