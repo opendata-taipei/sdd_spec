@@ -1,0 +1,10 @@
+schema_version: "1.0"
+features:
+  - feature_id: FEAT-001
+    title: Starter Kit Packaging and Verification
+    status: Planned
+    owner: Justin
+    target_release: 1.5.0
+    specification: specs/features/FEAT-001-starter-kit-packaging.md
+    changes:
+      - CHG-2026-002

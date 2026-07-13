@@ -1,0 +1,25 @@
+change_id: "CHG-2026-002"
+title: "Starter Kit Packaging"
+risk_level: L2
+owner: Justin
+authors:
+  - Justin
+requirements:
+  - REQ-PACKAGE-001
+  - REQ-PACKAGE-VERIFY-001
+  - REQ-PACKAGE-PORTABLE-001
+  - NFR-PERF-002
+  - SEC-PACKAGE-001
+  - OPS-REL-002
+declared_files:
+  - KIT_MANIFEST.json
+  - README.md
+  - CHANGELOG.md
+  - specs/features/README.md
+  - specs/features/_index.yaml
+  - specs/features/FEAT-001-starter-kit-packaging.md
+  - scripts/package_starter_kit.py
+  - schemas/package-metadata.schema.json
+  - tests/test_starter_kit_packaging.py
+  - docs/governance/20_Starter_Kit_Packaging_v1.5.md
+  - .github/workflows/sdd-quality-gates.yml

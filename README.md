@@ -1,4 +1,4 @@
-# SDD／Agentic 公司級 Starter Kit v1.4.1
+# SDD／Agentic 公司級 Starter Kit v1.5.0-dev
 
 這是一套可直接納入公司 Git Repository 的 **Spec-Driven Development（SDD）與 Agentic Engineering** 基礎架構。
 
@@ -15,6 +15,7 @@
 - `docs/governance/`：公司級 01～16 SDD 制度文件（Markdown）。
 - `constitution/`：每個專案永久有效的規範與 AI 執行契約。
 - `specs/living/`：目前系統真實狀態與長期規格。
+- `specs/features/`：跨版本 Feature 能力、狀態、目標版本與相關 Change 索引。
 - `changes/`：每次變更的 Proposal、Requirements、Design、Tasks、Test、Release 與 Closure。
 - `skills/`：工具中立、可被不同 Agent 使用的技能契約。
 - `agents/`：角色型 Agent 定義、Orchestrator、狀態機與交接規範。

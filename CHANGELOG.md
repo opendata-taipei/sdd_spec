@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.0 - Unreleased
+
+- 新增 Feature Registry 與 FEAT-001 Starter Kit Packaging 長期能力規格。
+- 建立 CHG-2026-002 deterministic package、safe verification 與無 `.git` round-trip Pilot 文件。
+
 ## 1.4.1 - 2026-07-13
 
 - 將 Starter Kit 提升至 repository root，使 GitHub Actions 可直接執行。
