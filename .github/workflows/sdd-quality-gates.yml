@@ -44,3 +44,45 @@ jobs:
         run: python scripts/portability_check.py
       - name: Verify Python control scripts compile
         run: python -m compileall -q scripts evals/adapters tests
+
+  package-round-trip:
+    needs: validate-sdd
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-governance.txt
+      - name: Install governance validators
+        run: python -m pip install -r requirements-governance.txt
+      - name: Build deterministic Starter Kit
+        run: python scripts/package_starter_kit.py build
+      - name: Verify, safely extract, and run governance checks
+        run: python scripts/package_starter_kit.py verify dist/sdd-agentic-starter-kit-1.5.0-dev.zip --destination dist/verified --run-governance
+      - name: Upload package and sidecars
+        uses: actions/upload-artifact@v4
+        with:
+          name: starter-kit-${{ runner.os }}
+          path: |
+            dist/*.zip
+            dist/*.metadata.json
+            dist/*.zip.sha256
+          if-no-files-found: error
+          retention-days: 30
+
+  compare-package-checksums:
+    needs: package-round-trip
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: starter-kit-*
+          path: package-artifacts
+      - name: Require identical Windows and Linux archives
+        run: python -c "from pathlib import Path; p=list(Path('package-artifacts').rglob('*.zip.sha256')); h={x.read_text(encoding='ascii').split()[0] for x in p}; print([(str(x),x.read_text(encoding='ascii').strip()) for x in p]); raise SystemExit(0 if len(p)==2 and len(h)==1 else 1)"

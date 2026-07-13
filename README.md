@@ -17,7 +17,7 @@
 - `specs/living/`：目前系統真實狀態與長期規格。
 - `specs/features/`：跨版本 Feature 能力、狀態、目標版本與相關 Change 索引。
 - `changes/`：每次變更的 Proposal、Requirements、Design、Tasks、Test、Release 與 Closure。
-- `skills/`：工具中立、可被不同 Agent 使用的技能契約。
+- `.agents/skills/`：採標準 `SKILL.md` 的 repo-scoped 技能契約；Codex 可直接發現，其他 Agent 亦可讀取。
 - `agents/`：角色型 Agent 定義、Orchestrator、狀態機與交接規範。
 - `schemas/`：Execution State、Requirement、Task、Agent Output 的 JSON Schema。
 - `scripts/`：建立 Change、驗證規格、Drift Check、AI 可攜性檢查。
@@ -46,6 +46,13 @@ python scripts/drift_check.py --change CHG-2026-001
 
 # 7. 確認發布 Manifest 與實際套件內容一致
 python scripts/build_kit_manifest.py --check
+
+# 8. 建立 deterministic ZIP、metadata 與 checksum
+python scripts/package_starter_kit.py build
+
+# 9. 完整驗證後安全解壓並重跑治理檢查
+python scripts/package_starter_kit.py verify dist/sdd-agentic-starter-kit-1.5.0-dev.zip \
+  --destination dist/verified --run-governance
 ```
 
 ## 推薦執行順序

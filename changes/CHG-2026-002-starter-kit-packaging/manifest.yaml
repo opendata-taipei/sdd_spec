@@ -13,8 +13,11 @@ requirements:
   - OPS-REL-002
 declared_files:
   - KIT_MANIFEST.json
+  - changes/CHG-2026-002-starter-kit-packaging/manifest.yaml
+  - changes/CHG-2026-002-starter-kit-packaging/tasks.md
   - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G2-REQUIREMENTS-REVIEW.json
+  - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G3-DESIGN-REVIEW.json
   - .gitignore
   - README.md
   - CHANGELOG.md
@@ -22,7 +25,48 @@ declared_files:
   - specs/features/_index.yaml
   - specs/features/FEAT-001-starter-kit-packaging.md
   - scripts/package_starter_kit.py
+  - scripts/build_kit_manifest.py
+  - scripts/README.md
   - schemas/package-metadata.schema.json
   - tests/test_starter_kit_packaging.py
+  - tests/test_kit_manifest.py
   - docs/governance/20_Starter_Kit_Packaging_v1.5.md
   - .github/workflows/sdd-quality-gates.yml
+  - skills/_shared/skill-contract.md
+  - skills/closure-curator/SKILL.md
+  - skills/closure-curator/skill.yaml
+  - skills/drift-auditor/SKILL.md
+  - skills/drift-auditor/skill.yaml
+  - skills/implementation-engineer/SKILL.md
+  - skills/implementation-engineer/skill.yaml
+  - skills/intake-triage/SKILL.md
+  - skills/intake-triage/skill.yaml
+  - skills/release-manager/SKILL.md
+  - skills/release-manager/skill.yaml
+  - skills/requirements-analyst/SKILL.md
+  - skills/requirements-analyst/skill.yaml
+  - skills/security-reviewer/SKILL.md
+  - skills/security-reviewer/skill.yaml
+  - skills/solution-architect/SKILL.md
+  - skills/solution-architect/skill.yaml
+  - skills/task-planner/SKILL.md
+  - skills/task-planner/skill.yaml
+  - .agents/skills/_shared/skill-contract.md
+  - .agents/skills/closure-curator/SKILL.md
+  - .agents/skills/closure-curator/skill.yaml
+  - .agents/skills/drift-auditor/SKILL.md
+  - .agents/skills/drift-auditor/skill.yaml
+  - .agents/skills/implementation-engineer/SKILL.md
+  - .agents/skills/implementation-engineer/skill.yaml
+  - .agents/skills/intake-triage/SKILL.md
+  - .agents/skills/intake-triage/skill.yaml
+  - .agents/skills/release-manager/SKILL.md
+  - .agents/skills/release-manager/skill.yaml
+  - .agents/skills/requirements-analyst/SKILL.md
+  - .agents/skills/requirements-analyst/skill.yaml
+  - .agents/skills/security-reviewer/SKILL.md
+  - .agents/skills/security-reviewer/skill.yaml
+  - .agents/skills/solution-architect/SKILL.md
+  - .agents/skills/solution-architect/skill.yaml
+  - .agents/skills/task-planner/SKILL.md
+  - .agents/skills/task-planner/skill.yaml

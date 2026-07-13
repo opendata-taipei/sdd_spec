@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Starter Kit Package Metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format_version", "kit_version", "source_manifest_sha256", "archive", "entries"],
+  "properties": {
+    "format_version": {"const": "1.0"},
+    "kit_version": {"type": "string", "pattern": "^[A-Za-z0-9.-]+$"},
+    "source_manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basename", "sha256", "entry_count", "total_uncompressed_size"],
+      "properties": {
+        "basename": {"type": "string", "pattern": "^sdd-agentic-starter-kit-[A-Za-z0-9.-]+\\.zip$"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "entry_count": {"type": "integer", "minimum": 0, "maximum": 4096},
+        "total_uncompressed_size": {"type": "integer", "minimum": 0, "maximum": 268435456}
+      }
+    },
+    "entries": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "size", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "size": {"type": "integer", "minimum": 0, "maximum": 33554432},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    }
+  }
+}

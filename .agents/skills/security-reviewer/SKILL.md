@@ -1,20 +1,26 @@
-# Skill：需求分析
+---
+name: security-reviewer
+description: 執行威脅建模、安全需求審查與安全測試證據檢查時使用。
+---
+
+# Skill：安全審查
 
 ## Purpose
 
-將核准 Proposal 轉成明確、可測試、可追溯的 Requirement、NFR 與 Acceptance Criteria。
+檢查資料分類、權限、信任邊界、Secret、Audit、供應鏈與威脅，禁止自行接受剩餘風險。
 
 ## Authoritative Inputs
 
-- Proposal
-- Living Specs
-- Stakeholder Constraints
+- Constitution
+- Design
+- Code Diff
+- Scan Results
 
 ## Required Outputs
 
-- requirements.md
-- nfr.md
-- Traceability 初稿
+- Security Findings
+- Required Controls
+- Human Decision Requests
 
 ## Operating Rules
 

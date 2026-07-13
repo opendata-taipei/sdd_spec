@@ -1,6 +1,6 @@
 # FEAT-001：Starter Kit Packaging and Verification
 
-- Status：Planned
+- Status：In Progress
 - Owner：Justin
 - Target Release：v1.5.0
 - Primary Change：CHG-2026-002
@@ -20,6 +20,7 @@
 - 驗證 ZIP 檔案集合、每檔 hash、路徑安全與 Manifest 版本。
 - 解壓後在無 `.git` 環境執行 Manifest、SDD、Enterprise 與 Portability checks。
 - Windows／Linux package round-trip tests。
+- 將可攜式 repo skills 發布於 `.agents/skills/`，並排除本機 `.skills/` cache。
 - 發布包不得包含真實 GitHub login、Email、Token、私有 IAM mapping 或 runtime artifacts。
 
 ## Out of Scope
@@ -48,7 +49,7 @@
 
 | Change | Purpose | Status |
 |---|---|---|
-| CHG-2026-002 | 建立 deterministic package、verification 與 CI evidence | Draft |
+| CHG-2026-002 | 建立 deterministic package、verification 與 CI evidence | Implementing |
 
 ## Dependencies
 

@@ -76,6 +76,35 @@ class KitManifestTests(unittest.TestCase):
             self.assertTrue(set(runtime_files).isdisjoint(manifest["files"]))
             self.assertEqual(self.run_script(root, "--check").returncode, 0)
 
+    def test_repo_skills_are_included_but_local_skill_cache_is_excluded(self):
+        with tempfile.TemporaryDirectory(prefix="sdd-manifest-test-") as base:
+            root = self.fixture(Path(base))
+            repo_skill = root / ".agents" / "skills" / "review" / "SKILL.md"
+            local_skill = root / ".skills" / "local-only" / "SKILL.md"
+            repo_skill.parent.mkdir(parents=True)
+            local_skill.parent.mkdir(parents=True)
+            repo_skill.write_text("---\nname: review\ndescription: review\n---\n", encoding="utf-8")
+            local_skill.write_text("local\n", encoding="utf-8")
+            self.assertEqual(self.run_script(root).returncode, 0)
+            manifest = json.loads((root / "KIT_MANIFEST.json").read_text(encoding="utf-8"))
+            self.assertIn(".agents/skills/review/SKILL.md", manifest["files"])
+            self.assertNotIn(".skills/local-only/SKILL.md", manifest["files"])
+
+    def test_current_skills_use_repo_discovery_location_and_frontmatter(self):
+        manifest = json.loads((SOURCE / "KIT_MANIFEST.json").read_text(encoding="utf-8"))
+        skill_paths = [
+            path for path in manifest["files"]
+            if path.startswith(".agents/skills/") and path.endswith("/SKILL.md")
+        ]
+        self.assertEqual(len(skill_paths), 9)
+        self.assertFalse(any(path.startswith("skills/") for path in manifest["files"]))
+        for relative in skill_paths:
+            text = (SOURCE / relative).read_text(encoding="utf-8")
+            self.assertTrue(text.startswith("---\n"), relative)
+            frontmatter = text.split("---", 2)[1]
+            self.assertRegex(frontmatter, r"(?m)^name: [a-z0-9-]+$")
+            self.assertRegex(frontmatter, r"(?m)^description: .+$")
+
     def test_sorting_has_case_sensitive_tie_breaker(self):
         module = load_manifest_module()
         values = ["z.txt", "A.txt", "a.txt", "B.txt"]

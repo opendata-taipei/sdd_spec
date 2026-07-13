@@ -1,21 +1,25 @@
-# Skill：安全審查
+---
+name: task-planner
+description: 將核准設計拆成有相依性、Owner、Evidence 與狀態的執行任務時使用。
+---
+
+# Skill：任務拆解與排程
 
 ## Purpose
 
-檢查資料分類、權限、信任邊界、Secret、Audit、供應鏈與威脅，禁止自行接受剩餘風險。
+將核准 Design 拆成可驗證、有依賴、可交接的 Tasks，不以檔案不同作為唯一平行依據。
 
 ## Authoritative Inputs
 
-- Constitution
 - Design
-- Code Diff
-- Scan Results
+- Requirements
+- Test Strategy
 
 ## Required Outputs
 
-- Security Findings
-- Required Controls
-- Human Decision Requests
+- tasks.md
+- Dependency Graph
+- Execution Plan
 
 ## Operating Rules
 

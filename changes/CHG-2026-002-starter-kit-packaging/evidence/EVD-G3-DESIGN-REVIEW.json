@@ -1,0 +1,22 @@
+{
+  "evidence_id": "EVD-G3-DESIGN-REVIEW",
+  "change_id": "CHG-2026-002",
+  "type": "review",
+  "uri": "changes/CHG-2026-002-starter-kit-packaging/design.md",
+  "sha256": "f197b1f210d5e32bb941bede99d339075f6fa1a01e8fc05dcb1a683c75bee8bf",
+  "produced_at": "2026-07-13T16:23:19.2010136Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [
+    "REQ-PACKAGE-001",
+    "REQ-PACKAGE-VERIFY-001",
+    "REQ-PACKAGE-PORTABLE-001",
+    "NFR-PERF-002",
+    "SEC-PACKAGE-001",
+    "OPS-REL-002"
+  ],
+  "result": "pass"
+}

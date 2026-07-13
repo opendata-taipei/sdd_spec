@@ -1,20 +1,25 @@
-# Skill：結案與知識沉澱
+---
+name: requirements-analyst
+description: 將需求整理成可驗證 Requirement、Acceptance Criteria 與追溯關係時使用。
+---
+
+# Skill：需求分析
 
 ## Purpose
 
-同步 Living Specs、ADR、Runbook，完成 Closure Report、Lessons Learned 與可攜性交接驗證。
+將核准 Proposal 轉成明確、可測試、可追溯的 Requirement、NFR 與 Acceptance Criteria。
 
 ## Authoritative Inputs
 
-- Completed Change
-- Drift Report
-- Release Evidence
+- Proposal
+- Living Specs
+- Stakeholder Constraints
 
 ## Required Outputs
 
-- closure-report.md
-- Living Spec Updates
-- Knowledge Archive
+- requirements.md
+- nfr.md
+- Traceability 初稿
 
 ## Operating Rules
 

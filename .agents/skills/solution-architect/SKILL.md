@@ -1,20 +1,25 @@
-# Skill：任務拆解與排程
+---
+name: solution-architect
+description: 建立技術設計、架構決策、介面契約與 Requirement mapping 時使用。
+---
+
+# Skill：技術與架構設計
 
 ## Purpose
 
-將核准 Design 拆成可驗證、有依賴、可交接的 Tasks，不以檔案不同作為唯一平行依據。
+建立可實作、可回滾、符合 Constitution 的 Technical Design，並識別需要 ADR 的決策。
 
 ## Authoritative Inputs
 
-- Design
 - Requirements
-- Test Strategy
+- Living Architecture
+- Security Baseline
 
 ## Required Outputs
 
-- tasks.md
-- Dependency Graph
-- Execution Plan
+- design.md
+- ADR proposal
+- Impact Analysis
 
 ## Operating Rules
 

@@ -4,6 +4,8 @@
 
 - 新增 Feature Registry 與 FEAT-001 Starter Kit Packaging 長期能力規格。
 - 建立 CHG-2026-002 deterministic package、safe verification 與無 `.git` round-trip Pilot 文件。
+- 新增標準函式庫 package build／verify CLI、canonical metadata schema 與 Windows／Linux round-trip CI。
+- 將 repo-scoped 技能集中至 Codex 可直接發現的 `.agents/skills/`；本機 `.skills/` 保持排除。
 
 ## 1.4.1 - 2026-07-13
 

@@ -9,9 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "KIT_MANIFEST.json"
 IGNORED_PARTS = {".git", ".venv", "__pycache__"}
 IGNORED_TOP_LEVEL = {
-    ".agents",
     ".codex",
     ".skills",
+    "dist",
     "SDD原始來源研究文件包_v1.0",
 }
 IGNORED_ROOT_FILES = {"LICENSE", "SDD_規格開發架構.png"}
@@ -33,7 +33,10 @@ def kit_files() -> list[str]:
         if not path.is_file() or any(part in IGNORED_PARTS for part in path.parts):
             continue
         relative = path.relative_to(ROOT).as_posix()
-        if relative.split("/", 1)[0] in IGNORED_TOP_LEVEL or relative in IGNORED_ROOT_FILES:
+        top_level = relative.split("/", 1)[0]
+        if top_level in IGNORED_TOP_LEVEL or relative in IGNORED_ROOT_FILES:
+            continue
+        if top_level == ".agents" and not relative.startswith(".agents/skills/"):
             continue
         if relative in IGNORED_RUNTIME_FILES or any(
             relative.startswith(prefix) for prefix in IGNORED_RUNTIME_PREFIXES

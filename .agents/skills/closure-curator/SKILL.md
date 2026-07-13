@@ -1,21 +1,25 @@
-# Skill：需求受理與風險分級
+---
+name: closure-curator
+description: 完成變更結案、Living Spec 同步、證據歸檔與知識沉澱時使用。
+---
+
+# Skill：結案與知識沉澱
 
 ## Purpose
 
-將模糊請求轉成 Change Intake，判斷 L0～L4、Owner、必要 Gate 與是否可進入 Proposal。
+同步 Living Specs、ADR、Runbook，完成 Closure Report、Lessons Learned 與可攜性交接驗證。
 
 ## Authoritative Inputs
 
-- 原始請求
-- Project Constitution
-- Risk Model
+- Completed Change
+- Drift Report
+- Release Evidence
 
 ## Required Outputs
 
-- Risk Classification
-- Change ID 建議
-- 缺失資訊
-- Gate List
+- closure-report.md
+- Living Spec Updates
+- Knowledge Archive
 
 ## Operating Rules
 

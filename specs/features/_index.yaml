@@ -2,7 +2,7 @@ schema_version: "1.0"
 features:
   - feature_id: FEAT-001
     title: Starter Kit Packaging and Verification
-    status: Planned
+    status: In Progress
     owner: Justin
     target_release: 1.5.0
     specification: specs/features/FEAT-001-starter-kit-packaging.md

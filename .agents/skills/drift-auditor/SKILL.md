@@ -1,20 +1,26 @@
-# Skill：技術與架構設計
+---
+name: drift-auditor
+description: 稽核程式、文件、Manifest 與已核准規格之間的漂移時使用。
+---
+
+# Skill：規格漂移稽核
 
 ## Purpose
 
-建立可實作、可回滾、符合 Constitution 的 Technical Design，並識別需要 ADR 的決策。
+比較 Change、Living Specs、Code、Tests 與 Release Evidence，區分 Tracked、Unspeced、Accepted Drift。
 
 ## Authoritative Inputs
 
-- Requirements
-- Living Architecture
-- Security Baseline
+- Git Diff
+- Manifest
+- Specs
+- Tests
 
 ## Required Outputs
 
-- design.md
-- ADR proposal
-- Impact Analysis
+- Drift Report
+- Sync Actions
+- Blocking Findings
 
 ## Operating Rules
 

@@ -1,21 +1,26 @@
-# Skill：規格漂移稽核
+---
+name: intake-triage
+description: 受理新需求、確認範圍並進行風險分級與 Change 初始化時使用。
+---
+
+# Skill：需求受理與風險分級
 
 ## Purpose
 
-比較 Change、Living Specs、Code、Tests 與 Release Evidence，區分 Tracked、Unspeced、Accepted Drift。
+將模糊請求轉成 Change Intake，判斷 L0～L4、Owner、必要 Gate 與是否可進入 Proposal。
 
 ## Authoritative Inputs
 
-- Git Diff
-- Manifest
-- Specs
-- Tests
+- 原始請求
+- Project Constitution
+- Risk Model
 
 ## Required Outputs
 
-- Drift Report
-- Sync Actions
-- Blocking Findings
+- Risk Classification
+- Change ID 建議
+- 缺失資訊
+- Gate List
 
 ## Operating Rules
 

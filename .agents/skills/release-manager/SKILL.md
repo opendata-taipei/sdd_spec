@@ -1,3 +1,8 @@
+---
+name: release-manager
+description: 規劃或執行版本發布、部署檢查、監控與回滾時使用。
+---
+
 # Skill：發布與回滾管理
 
 ## Purpose

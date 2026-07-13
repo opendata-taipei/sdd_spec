@@ -1,3 +1,8 @@
+---
+name: implementation-engineer
+description: 依核准 Requirement、Design、Task 與 Test Plan 實作變更時使用。
+---
+
 # Skill：規格化實作
 
 ## Purpose
