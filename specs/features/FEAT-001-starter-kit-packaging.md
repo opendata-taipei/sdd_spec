@@ -16,7 +16,7 @@
 ## In Scope
 
 - 依 `KIT_MANIFEST.json` 建立 deterministic ZIP。
-- 產生 ZIP SHA-256 checksum 與機器可讀發布中繼資料。
+- 產生位於 ZIP 外部的 SHA-256 checksum 與機器可讀發布中繼資料 sidecars。
 - 驗證 ZIP 檔案集合、每檔 hash、路徑安全與 Manifest 版本。
 - 解壓後在無 `.git` 環境執行 Manifest、SDD、Enterprise 與 Portability checks。
 - Windows／Linux package round-trip tests。
@@ -32,7 +32,7 @@
 ## Acceptance Outcomes
 
 1. 相同 commit 與版本在支援平台產生相同 ZIP bytes 與 SHA-256。
-2. ZIP 只包含 Manifest 列出的正式發布檔案及必要的 package metadata。
+2. ZIP 只包含 Manifest 列出的正式發布檔案；package metadata 與 checksum 為外部 sidecars。
 3. 遺失、多出、內容 hash 不符、absolute path 或 `..` traversal 時驗證失敗。
 4. 解壓後不依賴 `.git` 即可完成核心治理驗證。
 5. CI 保存 archive、checksum、verification report 與 run URL。

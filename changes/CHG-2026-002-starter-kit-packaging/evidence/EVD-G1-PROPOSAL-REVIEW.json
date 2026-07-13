@@ -1,0 +1,15 @@
+{
+  "evidence_id": "EVD-G1-PROPOSAL-REVIEW",
+  "change_id": "CHG-2026-002",
+  "type": "review",
+  "uri": "changes/CHG-2026-002-starter-kit-packaging/proposal.md",
+  "sha256": "7910fefbe012b94a86eb5137a5adbd71188ae3058263b02e7eeeb28ea60fecf4",
+  "produced_at": "2026-07-13T14:40:11.4758604Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [],
+  "result": "pass"
+}

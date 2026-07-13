@@ -13,6 +13,7 @@ requirements:
   - OPS-REL-002
 declared_files:
   - KIT_MANIFEST.json
+  - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - README.md
   - CHANGELOG.md
   - specs/features/README.md
