@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 216,
+  "file_count": 218,
   "files": [
     ".agents/skills/_shared/skill-contract.md",
     ".agents/skills/closure-curator/SKILL.md",
@@ -103,6 +103,8 @@
     "changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G1-PROPOSAL-REVIEW.json",
     "changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G2-REQUIREMENTS-REVIEW.json",
     "changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G3-DESIGN-REVIEW.json",
+    "changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-PACKAGE-CI-RUN.json",
+    "changes/CHG-2026-002-starter-kit-packaging/evidence/PACKAGE-CI-RUN-29268981993.md",
     "changes/CHG-2026-002-starter-kit-packaging/evidence/README.md",
     "changes/CHG-2026-002-starter-kit-packaging/manifest.yaml",
     "changes/CHG-2026-002-starter-kit-packaging/nfr.md",

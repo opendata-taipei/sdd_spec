@@ -18,6 +18,8 @@ declared_files:
   - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G2-REQUIREMENTS-REVIEW.json
   - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-G3-DESIGN-REVIEW.json
+  - changes/CHG-2026-002-starter-kit-packaging/evidence/EVD-PACKAGE-CI-RUN.json
+  - changes/CHG-2026-002-starter-kit-packaging/evidence/PACKAGE-CI-RUN-29268981993.md
   - .gitignore
   - .gitattributes
   - README.md

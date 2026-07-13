@@ -1,0 +1,22 @@
+{
+  "evidence_id": "EVD-PACKAGE-CI-RUN",
+  "change_id": "CHG-2026-002",
+  "type": "test",
+  "uri": "changes/CHG-2026-002-starter-kit-packaging/evidence/PACKAGE-CI-RUN-29268981993.md",
+  "sha256": "0dc4a22744e9c18a3590731a48d76816d6b5fba0b2f37a9db404953dbd9f2b39",
+  "produced_at": "2026-07-13T17:05:30Z",
+  "producer": "GitHub Actions",
+  "tool": {
+    "name": "SDD Quality Gates",
+    "version": "74448ddc5eb6f8511251ce2213aeb5152f4c0c27"
+  },
+  "requirements": [
+    "REQ-PACKAGE-001",
+    "REQ-PACKAGE-VERIFY-001",
+    "REQ-PACKAGE-PORTABLE-001",
+    "NFR-PERF-002",
+    "SEC-PACKAGE-001",
+    "OPS-REL-002"
+  ],
+  "result": "pass"
+}
