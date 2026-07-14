@@ -2,22 +2,24 @@
 
 ## GitHub OIDC Approval
 
-1. 將 `config/github-role-map.json` 的 placeholder 替換為企業 IAM 同步結果。
+1. 保持公開 `config/github-role-map.json` 為 placeholder；真實 mapping 不得提交 Git。
 2. 替換 `.github/CODEOWNERS` placeholder，啟用 branch protection 與 required review。
-3. 建立受保護的 `sdd-approval` GitHub Environment。
-4. 執行 `SDD Gate Approval` workflow，輸入 Change、Gate 與 Evidence IDs。
-5. Workflow 取得 audience=`sdd-approval` 的短期 OIDC JWT，只保存必要 claims，不保存原始 token。
-6. 下載 Approval artifact，經 Change Manager PR 合併後才成為 Repository 正式紀錄。
+3. 建立受保護的 `sdd-approval` GitHub Environment，設定 reviewers。
+4. 在 Environment secrets 設定 `SDD_GITHUB_ROLE_MAP_JSON` 與 32-byte key 的 canonical Base64 `SDD_IDENTITY_PEPPER_B64`；正式 contract 以 CHG-2026-003 核准設計為準。
+5. 執行 `SDD Gate Approval` workflow，輸入 Change、Gate 與 Evidence IDs。
+6. Workflow 取得 audience=`sdd-approval` 的短期 OIDC JWT，驗證 numeric actor／repository context，只保存 repository-scoped pseudonym 與 allowlisted claims。
+7. 下載本次唯一 Approval artifact，經 Change Manager PR 合併後才成為 Repository 正式紀錄。
 
 `id-token: write` 只允許 workflow 取得 OIDC token；實際權限仍由受保護 workflow、Environment、角色映射與 CODEOWNERS 決定。
 
 ### 身分資料最小揭露
 
 - 公開 Starter Kit、範例與文件只能保存虛構 actor 或 placeholder，不得列出真實 GitHub login、Email、企業帳號或完整 OIDC claims。
-- `config/github-role-map.json` 是部署範本；真實 actor／role mapping 應由導入公司的私有 Repository、受保護設定或企業 IAM 同步產生。
+- `config/github-role-map.json` 只提供公開 placeholder；正式 workflow 不讀取它，也不得 fallback。真實 numeric actor／role mapping 由受保護 Environment 或企業 IAM 同步注入。
 - GitHub login 雖通常不是秘密，但角色映射會揭露人員、專案與核准權限關聯，應視為內部授權中繼資料並採最小揭露。
 - 正式環境應優先以受保護 Team、不可變 actor ID 或企業 IAM subject 綁定權限；顯示名稱只能作為輔助資訊，不得作為唯一授權依據。
 - Approval Evidence 只保存驗證所需的縮減 claims 與 commit SHA；不得保存原始 OIDC token、Access Token 或不必要的個人資料。
+- HMAC pepper 是 repository identity root；不得在未結案 Gate 中靜默輪替。安全事件需用獨立 Change 管理 Approval migration。
 
 ## Append-only Event Store
 

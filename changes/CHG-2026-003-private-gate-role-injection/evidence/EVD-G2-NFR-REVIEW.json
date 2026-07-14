@@ -1,0 +1,20 @@
+{
+  "evidence_id": "EVD-G2-NFR-REVIEW",
+  "change_id": "CHG-2026-003",
+  "type": "review",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/nfr.md",
+  "sha256": "0124ad6f3a2d9d68d80b7cb83ed8a60440f2b3086e453dd617caf0ade4a1c74b",
+  "produced_at": "2026-07-14T15:14:25Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [
+    "NFR-PERF-003",
+    "SEC-IDENTITY-002",
+    "SEC-PRIVACY-002",
+    "OPS-REL-003"
+  ],
+  "result": "pass"
+}

@@ -16,15 +16,28 @@ requirements:
   - OPS-REL-003
 declared_files:
   - KIT_MANIFEST.json
+  - adr/ADR-001-pseudonymous-gate-identity.md
   - specs/features/_index.yaml
   - specs/features/FEAT-002-privacy-preserving-gate-approval.md
   - .github/workflows/sdd-gate-approval.yml
   - scripts/resolve_github_role.py
+  - scripts/gate_identity.py
+  - scripts/prepare_gate_identity.py
+  - scripts/create_approval.py
+  - scripts/event_store.py
+  - scripts/transition_state.py
+  - scripts/validate_enterprise.py
   - tests/test_gate_role_resolution.py
+  - tests/test_gate_identity.py
+  - tests/test_gate_approval_workflow.py
+  - tests/test_enterprise_controls.py
+  - tests/test_starter_kit_packaging.py
   - docs/governance/18_Enterprise_Pilot_Integration_v1.3.md
   - changes/CHG-2026-003-private-gate-role-injection/approvals/README.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/README.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROPOSAL-REVIEW.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-NFR-REVIEW.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-REQUIREMENTS-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
   - changes/CHG-2026-003-private-gate-role-injection/design.md
   - changes/CHG-2026-003-private-gate-role-injection/events.jsonl
@@ -33,6 +46,7 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/proposal.md
   - changes/CHG-2026-003-private-gate-role-injection/release-plan.md
   - changes/CHG-2026-003-private-gate-role-injection/requirements.md
+  - changes/CHG-2026-003-private-gate-role-injection/security-review.md
   - changes/CHG-2026-003-private-gate-role-injection/state.json
   - changes/CHG-2026-003-private-gate-role-injection/tasks.md
   - changes/CHG-2026-003-private-gate-role-injection/test-plan.md
