@@ -12,6 +12,7 @@ requirements:
   - SEC-PACKAGE-001
   - OPS-REL-002
 declared_files:
+  - AGENTS.md
   - KIT_MANIFEST.json
   - changes/CHG-2026-002-starter-kit-packaging/manifest.yaml
   - changes/CHG-2026-002-starter-kit-packaging/tasks.md

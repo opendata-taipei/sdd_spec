@@ -12,6 +12,7 @@
 
 ## 內容
 
+- `AGENTS.md`：Repository 根層 Agent 執行規則、Gate 邊界與驗證命令。
 - `docs/governance/`：公司級 01～16 SDD 制度文件（Markdown）。
 - `constitution/`：每個專案永久有效的規範與 AI 執行契約。
 - `specs/living/`：目前系統真實狀態與長期規格。

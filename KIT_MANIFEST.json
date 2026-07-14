@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 218,
+  "file_count": 219,
   "files": [
     ".agents/skills/_shared/skill-contract.md",
     ".agents/skills/closure-curator/SKILL.md",
@@ -36,6 +36,7 @@
     "adapters/ide-agent/RULES.md",
     "adapters/README.md",
     "adr/_template.md",
+    "AGENTS.md",
     "agents/architect/AGENT.md",
     "agents/architect/agent.yaml",
     "agents/business-analyst/AGENT.md",
