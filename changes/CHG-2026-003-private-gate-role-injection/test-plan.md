@@ -39,3 +39,5 @@
 | TEST-PRIVACY-001 | Pass locally | outputs／synthetic artifact／workflow／Kit 未保存 injected mapping、pepper、JWT 或 raw actor ID；real Actions log 待查 |
 | TEST-PERF-001 | Pass | 32 KiB fixture ×100，p95 與 peak RSS assertions 通過 |
 | TEST-REMEDIATION-001 | Partial | reducer reason projection pass；正式 merged Approvals 與 CHG-2026-002 pilot 尚待 TASK-005 |
+
+Cross-platform Quality Gates run `29351982743` 已通過 Linux／Windows package round-trip 與 checksum comparison；此結果不改變 protected Environment tests 的 Partial 狀態。

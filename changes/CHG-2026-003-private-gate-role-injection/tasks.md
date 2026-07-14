@@ -7,7 +7,7 @@
 | TASK-003 | REQ-GATE-WORKFLOW-001, SEC-IDENTITY-002, SEC-PRIVACY-002, OPS-REL-003 | 實作 safe Approval ID／atomic output，更新 protected Environment workflow、safe inputs、cleanup 與 single-artifact contract | TASK-001, TASK-002 | Engineer | TEST-WORKFLOW-001～002, TEST-SECURITY-001, TEST-PRIVACY-001 | Implemented — Environment verification pending |
 | TASK-004 | FEAT-002, ADR-001 | 更新 private deployment runbook、Feature、ADR 與 public placeholder／pepper rotation 邊界 | TASK-003 | Product Owner | Documentation review | Implemented |
 | TASK-005 | REQ-STATE-REMEDIATION-001, OPS-REL-003 | 先 bootstrap CHG-2026-003，再以 CHG-2026-002 演練正式 Approval merge 與逐步 append-only state remediation | TASK-006, protected Environment ready, Human Approval merge | Change Manager | TEST-REMEDIATION-001, Enterprise validation | Planned |
-| TASK-006 | All in-scope requirements | 執行完整 local governance、failure-path、package round-trip、privacy scan 與跨平台 CI，保存 implementation evidence | TASK-001, TASK-002, TASK-003, TASK-004 | QA Lead | Full baseline, Actions run, artifact hashes | Local Passed — CI pending |
+| TASK-006 | All in-scope requirements | 執行完整 local governance、failure-path、package round-trip、privacy scan 與跨平台 CI，保存 implementation evidence | TASK-001, TASK-002, TASK-003, TASK-004 | QA Lead | Full baseline, Actions run, artifact hashes | Completed |
 
 ## Dependency Graph
 

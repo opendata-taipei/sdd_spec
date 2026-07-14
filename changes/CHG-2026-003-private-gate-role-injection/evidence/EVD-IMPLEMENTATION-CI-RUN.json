@@ -1,0 +1,24 @@
+{
+  "evidence_id": "EVD-IMPLEMENTATION-CI-RUN",
+  "change_id": "CHG-2026-003",
+  "type": "test",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/evidence/QUALITY-CI-RUN-29351982743.md",
+  "sha256": "efafe351db738aad3d124f8e6f0f67714bf65c25323e11780e45da798f99cf90",
+  "produced_at": "2026-07-14T17:03:33Z",
+  "producer": "GitHub Actions",
+  "tool": {
+    "name": "SDD Quality Gates",
+    "version": "ac543f764345e837beeef0c1c7ddfeb1c15b5dbb"
+  },
+  "requirements": [
+    "REQ-ROLE-MAP-001",
+    "REQ-GATE-RESOLVE-001",
+    "REQ-PRIVATE-ACTOR-001",
+    "REQ-GATE-WORKFLOW-001",
+    "NFR-PERF-003",
+    "SEC-IDENTITY-002",
+    "SEC-PRIVACY-002",
+    "OPS-REL-003"
+  ],
+  "result": "pass"
+}
