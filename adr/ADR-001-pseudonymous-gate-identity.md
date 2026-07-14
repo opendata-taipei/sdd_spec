@@ -1,6 +1,6 @@
 # ADR-001：Protected Numeric Role Mapping and Pseudonymous Gate Identity
 
-- Status：Proposed
+- Status：Accepted
 - Date：2026-07-14
 - Decision Owners：Architect、Security Owner
 - Related Change：CHG-2026-003
@@ -25,11 +25,13 @@
 | Runtime GitHub Team API | 集中管理 | 高權限 token、外部 API 與稽核依賴 |
 | Protected numeric mapping + HMAC pseudonym | 授權主鍵穩定、公開資料最少、可離線驗證格式 | 需管理 mapping、pepper 與 rotation procedure |
 
-## Proposed Decision
+## Decision
 
 正式 GitHub Gate workflow 只從 protected runtime JSON 以 numeric GitHub actor ID 解析 role；公開 `config/github-role-map.json` 不作正式 fallback。公開 Approval 使用 32-byte protected pepper、numeric repository ID 與 actor ID 產生完整 HMAC-SHA-256 pseudonym，格式為 `ghoidc-v1:<64 lowercase hex>`。
 
 pepper 在 repository release lineage 中視為 identity root；正常操作不輪替。安全事件的 rotation 必須由獨立 Change 管理未結案 Approval migration，不能在同一 Gate 計數期間靜默替換。
+
+G3 於 2026-07-14 接受此決策，並接受 GitHub-hosted runner 經 authenticated OIDC endpoint／TLS 取得 token 後，由本地程式驗證 claims 與 runner context、但不額外執行 JWK signature verification 的 trust boundary。這是 architecture boundary 與 mandatory operating control，不是 Security Exception。
 
 ## Consequences
 

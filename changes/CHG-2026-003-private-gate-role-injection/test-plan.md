@@ -2,7 +2,7 @@
 
 ## Entry Criteria
 
-- [ ] Requirement 與 Design 已核准
+- [x] Requirement 與 Design 已核准
 - [ ] Test Environment 與 Data 可用
 
 ## Test Cases

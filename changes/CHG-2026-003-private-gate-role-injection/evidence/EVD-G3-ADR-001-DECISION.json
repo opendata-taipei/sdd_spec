@@ -1,0 +1,18 @@
+{
+  "evidence_id": "EVD-G3-ADR-001-DECISION",
+  "change_id": "CHG-2026-003",
+  "type": "review",
+  "uri": "adr/ADR-001-pseudonymous-gate-identity.md",
+  "sha256": "bcea888cddd2881237f9d44903847300aa4cf5c2e3edb47af6f02dfb253d186b",
+  "produced_at": "2026-07-14T15:52:00Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [
+    "REQ-PRIVATE-ACTOR-001",
+    "SEC-IDENTITY-002"
+  ],
+  "result": "pass"
+}

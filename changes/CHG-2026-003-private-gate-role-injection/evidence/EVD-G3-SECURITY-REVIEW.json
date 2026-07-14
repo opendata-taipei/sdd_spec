@@ -1,0 +1,21 @@
+{
+  "evidence_id": "EVD-G3-SECURITY-REVIEW",
+  "change_id": "CHG-2026-003",
+  "type": "review",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/security-review.md",
+  "sha256": "f2d0b5e1917222e59039c2cff16f31484d9c78c1d96aa4203d05415de8d97b7f",
+  "produced_at": "2026-07-14T15:52:00Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [
+    "REQ-PRIVATE-ACTOR-001",
+    "REQ-GATE-WORKFLOW-001",
+    "SEC-IDENTITY-002",
+    "SEC-PRIVACY-002",
+    "OPS-REL-003"
+  ],
+  "result": "pass"
+}

@@ -1,6 +1,6 @@
 # CHG-2026-003 G3 Security Review
 
-- Review Status：Conditional Pass — Human Decision Required
+- Review Status：Pass — G3 Trust Boundaries Accepted
 - Reviewed At：2026-07-14
 - Risk Level：L2
 - Applicable Gate：G3_DESIGN
@@ -26,17 +26,17 @@
 6. 所有 finding 都需有 negative regression tests；不可用移除 assertion 或 public fallback 修正失敗（TASK-001～003、TEST-ROLE-002、TEST-IDENTITY-002、TEST-WORKFLOW-002、TEST-SECURITY-001、TEST-PRIVACY-001）。
 7. Remediation 僅接受已 review／merged 的正式 Approval，逐步 append event 並保留 current timestamp／reason（REQ-STATE-REMEDIATION-001）。
 
-## Human Decision Requests
+## G3 Human Decision
 
-`HUMAN_DECISION_REQUIRED`：G3 核准者需明確決定：
+2026-07-14 G3 核准者明確接受：
 
-1. 是否接受 SEC-F-001 的 GitHub-hosted runner／authenticated OIDC endpoint trust model，或要求增加 JWK signature verification 與其 dependency／availability impact。
-2. 是否接受 ADR-001 將 pepper 定義為 repository identity root，並將 rotation 視為需獨立 Change 的中斷式 migration。
+1. SEC-F-001 的 GitHub-hosted runner／authenticated OIDC endpoint trust model，不增加本地 JWK signature verification dependency。
+2. ADR-001 將 pepper 定義為 repository identity root，rotation 視為需獨立 Change 的中斷式 migration。
 
-在 G3 決定前不得開始 TASK-001～TASK-005。若接受 proposed design，SEC-F-001／002 不是 Security Exception，而是已知 architecture trust boundary 與強制 operating control；若不接受，Design 必須修訂並重新送 G3。
+SEC-F-001／002 不是 Security Exception，而是已接受的 architecture trust boundary 與強制 operating control。任何降低 required controls、改用 public fallback 或允許未受管 pepper rotation 的實作仍須停止並重新送 Design／Security review。
 
 ## Evidence and Next Gate
 
 - 已執行：SDD／Enterprise validators、27 unit tests、evals、runtime audit、Manifest、portability、compileall、drift、state projection，全部通過。
 - 本審查是 design review，不代表新 identity implementation 已測試或可發布。
-- 下一個合法 Gate：G3_DESIGN；通過後才可進入 Ready for Implementation planning，正式 IMPLEMENTING 仍需 G4_READY。
+- 下一個合法 Gate：G4_READY；通過前只能完成 implementation-readiness planning，不得開始 TASK-001～TASK-006。

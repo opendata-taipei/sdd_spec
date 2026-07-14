@@ -38,6 +38,9 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-NFR-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-REQUIREMENTS-REVIEW.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G3-ADR-001-DECISION.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G3-DESIGN-REVIEW.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G3-SECURITY-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
   - changes/CHG-2026-003-private-gate-role-injection/design.md
   - changes/CHG-2026-003-private-gate-role-injection/events.jsonl

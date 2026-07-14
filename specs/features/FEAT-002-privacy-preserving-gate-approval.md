@@ -1,6 +1,6 @@
 # FEAT-002：Privacy-Preserving Gate Approval
 
-- Status：Design Review
+- Status：G4 Readiness Review
 - Owner：Justin
 - Target Release：v1.5.0
 - Primary Change：CHG-2026-003
@@ -48,7 +48,7 @@
 
 | Change | Purpose | Status |
 |---|---|---|
-| CHG-2026-003 | 建立受保護 role injection、tests 與 CHG-2026-002 remediation pilot | Design Review |
+| CHG-2026-003 | 建立受保護 role injection、tests 與 CHG-2026-002 remediation pilot | G4 Readiness Review |
 
 ## Dependencies
 
