@@ -48,5 +48,5 @@
 
 - [x] Business Problem 已確認
 - [x] Scope／Out of Scope 已確認
-- [ ] Risk Level 已核准
+- [x] Risk Level 已核准
 - [x] Owner 與 Success Metric 已定義

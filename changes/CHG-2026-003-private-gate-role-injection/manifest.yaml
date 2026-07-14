@@ -4,7 +4,16 @@ risk_level: L2
 owner: Justin
 authors:
   - Justin
-requirements: []
+requirements:
+  - REQ-ROLE-MAP-001
+  - REQ-GATE-RESOLVE-001
+  - REQ-PRIVATE-ACTOR-001
+  - REQ-GATE-WORKFLOW-001
+  - REQ-STATE-REMEDIATION-001
+  - NFR-PERF-003
+  - SEC-IDENTITY-002
+  - SEC-PRIVACY-002
+  - OPS-REL-003
 declared_files:
   - KIT_MANIFEST.json
   - specs/features/_index.yaml
@@ -15,6 +24,7 @@ declared_files:
   - docs/governance/18_Enterprise_Pilot_Integration_v1.3.md
   - changes/CHG-2026-003-private-gate-role-injection/approvals/README.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/README.md
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
   - changes/CHG-2026-003-private-gate-role-injection/design.md
   - changes/CHG-2026-003-private-gate-role-injection/events.jsonl

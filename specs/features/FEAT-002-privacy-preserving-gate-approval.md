@@ -1,6 +1,6 @@
 # FEAT-002：Privacy-Preserving Gate Approval
 
-- Status：Planned
+- Status：Requirements Review
 - Owner：Justin
 - Target Release：v1.5.0
 - Primary Change：CHG-2026-003
@@ -39,6 +39,7 @@
 ## Security and Privacy Boundaries
 
 - Role map 是敏感授權中繼資料，即使 GitHub login 本身不是 secret，仍不得放入公開 Kit。
+- 授權主鍵使用可信 OIDC numeric actor ID；公開 Approval 只保存由受保護 32-byte pepper 產生的 repository-scoped HMAC pseudonym。
 - Runtime mapping 僅在 role-resolution step 最小範圍可見，不得寫入 `$GITHUB_OUTPUT`、artifact 或 diagnostic dump。
 - Repository 只保存 contract、placeholder、縮減 OIDC claims 與 Approval record；不保存原始 token。
 - 缺少可信 configuration 時沒有 public-map fallback，避免誤用 placeholder 或降級授權。
@@ -47,7 +48,7 @@
 
 | Change | Purpose | Status |
 |---|---|---|
-| CHG-2026-003 | 建立受保護 role injection、tests 與 CHG-2026-002 remediation pilot | Draft |
+| CHG-2026-003 | 建立受保護 role injection、tests 與 CHG-2026-002 remediation pilot | Requirements Review |
 
 ## Dependencies
 

@@ -1,0 +1,15 @@
+{
+  "evidence_id": "EVD-G1-PROPOSAL-REVIEW",
+  "change_id": "CHG-2026-003",
+  "type": "review",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/proposal.md",
+  "sha256": "2e8eaed849868d36f422419ca50adf0d8030e24b6cce745df499b7e5a38244ef",
+  "produced_at": "2026-07-14T14:57:50.0053829Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [],
+  "result": "pass"
+}
