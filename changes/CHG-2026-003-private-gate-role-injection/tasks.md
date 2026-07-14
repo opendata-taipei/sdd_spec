@@ -49,7 +49,7 @@ TASK-001 與 TASK-002 共用 `gate_identity.py` contract，TASK-003 同時修改
 - [x] 所有預計修改／新增檔案已列入 Change manifest。
 - [x] Tasks 具 Requirement、Owner、Dependency、Evidence 與 bounded execution order。
 - [x] 不需 Production credential；本地測試只用 synthetic fixtures。
-- [ ] G3 packet commit 的 GitHub Actions Windows／Linux package jobs 與 checksum comparison 成功。
+- [x] G3 packet commit 的 GitHub Actions Windows／Linux package jobs 與 checksum comparison 成功（run `29347370543`）。
 - [ ] Human G4_READY 核准。
 
 ## Parallelism Rules
