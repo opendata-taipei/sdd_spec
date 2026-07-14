@@ -25,6 +25,7 @@ parser=argparse.ArgumentParser()
 parser.add_argument('--change',required=True); parser.add_argument('--to',required=True)
 parser.add_argument('--actor',required=True); parser.add_argument('--evidence',required=True)
 parser.add_argument('--actor-role', required=True, choices=POLICY['allowed_roles'])
+parser.add_argument('--reason', choices=['retrospective_governance_remediation'])
 args=parser.parse_args()
 choices=[d for d in (ROOT/'changes').glob(args.change+'*') if d.is_dir()]
 if len(choices)!=1: raise SystemExit(f'Expected exactly one change directory, found {len(choices)}')
@@ -56,11 +57,14 @@ chain_errors = verify_chain(events)
 if chain_errors:
     raise SystemExit('Invalid event chain: ' + '; '.join(chain_errors))
 occurred_at = datetime.now(timezone(timedelta(hours=8))).isoformat()
+payload = {'from': current, 'to': target, 'evidence': args.evidence}
+if args.reason:
+    payload['reason'] = args.reason
 event = {
     'event_id': 'EVT-' + uuid.uuid4().hex.upper(), 'change_id': state['change_id'],
     'sequence': len(events) + 1, 'event_type': 'STATE_TRANSITIONED',
     'occurred_at': occurred_at, 'actor_id': args.actor, 'actor_role': args.actor_role,
-    'payload': {'from': current, 'to': target, 'evidence': args.evidence},
+    'payload': payload,
     'previous_hash': events[-1]['event_hash'] if events else None, 'commit_sha': None,
 }
 event['event_hash'] = canonical_hash(event)

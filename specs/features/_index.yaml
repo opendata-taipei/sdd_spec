@@ -10,7 +10,7 @@ features:
       - CHG-2026-002
   - feature_id: FEAT-002
     title: Privacy-Preserving Gate Approval
-    status: G4 Readiness Review
+    status: Implemented - Awaiting Verification
     owner: Justin
     target_release: 1.5.0
     specification: specs/features/FEAT-002-privacy-preserving-gate-approval.md

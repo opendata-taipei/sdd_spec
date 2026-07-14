@@ -1,0 +1,18 @@
+{
+  "evidence_id": "EVD-DESIGN-ADDENDUM-001-REVIEW",
+  "change_id": "CHG-2026-003",
+  "type": "review",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/design-addendum-001.md",
+  "sha256": "b59723fea687aed8af6f651765f1b217ca1a07888fdb3804231437080d528ee6",
+  "produced_at": "2026-07-14T16:51:51Z",
+  "producer": "Justin",
+  "tool": {
+    "name": "manual-review",
+    "version": "1.0"
+  },
+  "requirements": [
+    "REQ-GATE-WORKFLOW-001",
+    "SEC-IDENTITY-002"
+  ],
+  "result": "pass"
+}

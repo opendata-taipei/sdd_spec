@@ -10,6 +10,9 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from event_store import canonical_hash, reduce_events
+
 SOURCE = Path(__file__).resolve().parents[1]
 CHANGE = "changes/CHG-EXAMPLE-001-add-account-lockout"
 
@@ -93,6 +96,23 @@ class EnterpriseControlTests(unittest.TestCase):
                                     "--change", "CHG-2026-999", "--check"],
                                    cwd=root, text=True, capture_output=True)
             self.assertEqual(check.returncode, 0, check.stderr)
+
+    def test_remediation_reason_is_projected_without_changing_old_events(self):
+        snapshot = {
+            "event_type": "STATE_SNAPSHOT", "actor_id": "author", "actor_role": "change_author",
+            "occurred_at": "2026-01-01T00:00:00Z",
+            "payload": {"state": {"status": "DRAFT", "current_phase": "PROPOSAL", "decisions": []}},
+        }
+        transition = {
+            "event_type": "STATE_TRANSITIONED", "actor_id": "manager", "actor_role": "release_manager",
+            "occurred_at": "2026-01-02T00:00:00Z",
+            "payload": {
+                "from": "DRAFT", "to": "PROPOSAL_REVIEW", "evidence": "EVD-REMEDIATION",
+                "reason": "retrospective_governance_remediation",
+            },
+        }
+        state = reduce_events([snapshot, transition])
+        self.assertEqual(state["decisions"][0]["reason"], "retrospective_governance_remediation")
 
 if __name__ == "__main__":
     unittest.main()

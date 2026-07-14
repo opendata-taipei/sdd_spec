@@ -1,6 +1,6 @@
 # FEAT-002：Privacy-Preserving Gate Approval
 
-- Status：G4 Readiness Review
+- Status：Implemented — Awaiting Verification
 - Owner：Justin
 - Target Release：v1.5.0
 - Primary Change：CHG-2026-003
@@ -48,12 +48,13 @@
 
 | Change | Purpose | Status |
 |---|---|---|
-| CHG-2026-003 | 建立受保護 role injection、tests 與 CHG-2026-002 remediation pilot | G4 Readiness Review |
+| CHG-2026-003 | 建立受保護 role injection、tests 與 CHG-2026-002 remediation pilot | Implemented — Awaiting Verification |
 
 ## Dependencies
 
 - Enterprise policy v1.4、Approval／Evidence schemas 與 GitHub OIDC workflow。
 - GitHub protected Environment `sdd-approval` 及由 Human administrator 維護的 private mapping。
+- 本地 implementation 使用 synthetic fixtures；正式 Environment success/failure artifact evidence 與 remediation pilot 尚待執行。
 
 ## Risks
 

@@ -1,0 +1,24 @@
+{
+  "evidence_id": "EVD-IMPLEMENTATION-LOCAL-VERIFICATION",
+  "change_id": "CHG-2026-003",
+  "type": "test",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/implementation-report.md",
+  "sha256": "b6ec67a003739363db0cbe76bc4ca16c51344ab5b2076b1c693e0e8f4a95f1be",
+  "produced_at": "2026-07-14T16:58:13Z",
+  "producer": "Codex",
+  "tool": {
+    "name": "local-governance-baseline",
+    "version": "Python-3.13.14"
+  },
+  "requirements": [
+    "REQ-ROLE-MAP-001",
+    "REQ-GATE-RESOLVE-001",
+    "REQ-PRIVATE-ACTOR-001",
+    "REQ-GATE-WORKFLOW-001",
+    "NFR-PERF-003",
+    "SEC-IDENTITY-002",
+    "SEC-PRIVACY-002",
+    "OPS-REL-003"
+  ],
+  "result": "pass"
+}

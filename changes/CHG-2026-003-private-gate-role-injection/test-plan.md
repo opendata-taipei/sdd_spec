@@ -3,7 +3,7 @@
 ## Entry Criteria
 
 - [x] Requirement 與 Design 已核准
-- [ ] Test Environment 與 Data 可用
+- [ ] Protected GitHub Environment 與 private data 可用；local synthetic fixtures 已可用
 
 ## Test Cases
 
@@ -26,3 +26,16 @@
 - [ ] 所有 Must Requirement 已通過
 - [ ] 無未接受的 Critical／High Defect
 - [ ] 測試證據已保存
+
+## Implementation Verification Status
+
+| Scope | Status | Notes |
+|---|---|---|
+| TEST-ROLE-001～003 | Pass | strict parser、failure paths、unique policy role 與 stdout contract |
+| TEST-IDENTITY-001～002 | Pass | HMAC domain separation、canonical pepper、numeric IDs、exact reduced claim |
+| TEST-WORKFLOW-001 | Partial | local synthetic end-to-end pass；real protected Environment artifact 尚待 Human-controlled run |
+| TEST-WORKFLOW-002 | Partial | local missing／malicious／existing-target paths pass；real cancellation log 尚待 Environment run |
+| TEST-SECURITY-001 | Pass locally | issuer／audience／repository／actor／workflow_ref／run／time／claim mismatch 拒絕 |
+| TEST-PRIVACY-001 | Pass locally | outputs／synthetic artifact／workflow／Kit 未保存 injected mapping、pepper、JWT 或 raw actor ID；real Actions log 待查 |
+| TEST-PERF-001 | Pass | 32 KiB fixture ×100，p95 與 peak RSS assertions 通過 |
+| TEST-REMEDIATION-001 | Partial | reducer reason projection pass；正式 merged Approvals 與 CHG-2026-002 pilot 尚待 TASK-005 |

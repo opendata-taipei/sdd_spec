@@ -39,11 +39,14 @@ def reduce_events(events: list[dict]) -> dict:
             state["current_phase"] = payload["to"]
             state["updated_by"] = event["actor_id"]
             state["updated_at"] = event["occurred_at"]
-            state.setdefault("decisions", []).append({
+            decision = {
                 "type": "state_transition", "from": payload["from"], "to": payload["to"],
                 "actor": event["actor_id"], "actor_role": event["actor_role"],
                 "evidence": payload.get("evidence")
-            })
+            }
+            if payload.get("reason") is not None:
+                decision["reason"] = payload["reason"]
+            state.setdefault("decisions", []).append(decision)
         elif kind == "RISK_CHANGED":
             state["risk_level"] = payload["to"]
         elif kind == "CHANGE_CLOSED":

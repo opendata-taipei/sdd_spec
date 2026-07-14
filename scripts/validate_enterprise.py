@@ -5,6 +5,11 @@ import json
 import sys
 from pathlib import Path
 from event_store import read_events, reduce_events, verify_chain
+from gate_identity import (
+    GateIdentityError,
+    approval_id as build_approval_id,
+    validate_reduced_identity_claim,
+)
 
 try:
     import yaml
@@ -138,6 +143,14 @@ for change_dir in sorted((ROOT / "changes").iterdir()):
             errors.append(f"{change_dir.name}: untrusted identity provider {provider}")
         if POLICY["trusted_identity"]["require_commit_sha"] and not record.get("commit_sha") and not example_allowed:
             errors.append(f"{change_dir.name}: approval {record.get('approval_id')} must bind a commit SHA")
+        if provider == "github-oidc":
+            try:
+                validate_reduced_identity_claim(record.get("identity_claim", ""), actor)
+                expected_id = build_approval_id(provider, actor, gate)
+                if record.get("approval_id") != expected_id or path.name != expected_id + ".json":
+                    errors.append(f"{change_dir.name}: github-oidc approval ID/path does not match its identity")
+            except GateIdentityError as exc:
+                errors.append(f"{change_dir.name}: invalid github-oidc identity contract: {exc}")
         if high_risk:
             if POLICY["high_risk"]["author_cannot_approve"] and actor in authors:
                 errors.append(f"{change_dir.name}: author {actor} cannot approve high-risk change")
