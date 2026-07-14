@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 254,
+  "file_count": 270,
   "files": [
     ".agents/skills/_shared/skill-contract.md",
     ".agents/skills/closure-curator/SKILL.md",
@@ -123,6 +123,7 @@
     "changes/CHG-2026-003-private-gate-role-injection/events.jsonl",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-DESIGN-ADDENDUM-001-REVIEW.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROPOSAL-REVIEW.json",
+    "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROTECTED-WORKFLOW-VERIFICATION.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-NFR-REVIEW.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-REQUIREMENTS-REVIEW.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G3-ADR-001-DECISION.json",
@@ -131,6 +132,7 @@
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G4-IMPLEMENTATION-READINESS.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-IMPLEMENTATION-CI-RUN.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-IMPLEMENTATION-LOCAL-VERIFICATION.json",
+    "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-G1-RUN-29354763421.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/QUALITY-CI-RUN-29351982743.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/README.md",
     "changes/CHG-2026-003-private-gate-role-injection/g4-readiness.md",
@@ -256,6 +258,20 @@
     "tests/test_gate_role_resolution.py",
     "tests/test_kit_manifest.py",
     "tests/test_runtime_audit.py",
-    "tests/test_starter_kit_packaging.py"
+    "tests/test_starter_kit_packaging.py",
+    "tmp/0_create-approval.txt",
+    "tmp/create-approval/17_Post Run actions_setup-python@v5.txt",
+    "tmp/create-approval/18_Post Run actions_checkout@v4.txt",
+    "tmp/create-approval/19_Complete job.txt",
+    "tmp/create-approval/1_Set up job.txt",
+    "tmp/create-approval/2_Run actions_checkout@v4.txt",
+    "tmp/create-approval/3_Run actions_setup-python@v5.txt",
+    "tmp/create-approval/4_Run python -m pip install -r requirements-governance.txt.txt",
+    "tmp/create-approval/5_Prepare protected Gate identity.txt",
+    "tmp/create-approval/6_Create approval from trusted workflow context.txt",
+    "tmp/create-approval/7_Validate generated approval.txt",
+    "tmp/create-approval/8_Cleanup OIDC temporary file.txt",
+    "tmp/create-approval/9_Run actions_upload-artifact@v4.txt",
+    "tmp/create-approval/system.txt"
   ]
 }

@@ -10,3 +10,4 @@ reports/*.tmp
 reports/evals/latest.json
 reports/runs/
 .DS_Store
+/tmp/
