@@ -1,0 +1,28 @@
+change_id: "CHG-2026-003"
+title: "Private Gate Role Injection"
+risk_level: L2
+owner: Justin
+authors:
+  - Justin
+requirements: []
+declared_files:
+  - KIT_MANIFEST.json
+  - specs/features/_index.yaml
+  - specs/features/FEAT-002-privacy-preserving-gate-approval.md
+  - .github/workflows/sdd-gate-approval.yml
+  - scripts/resolve_github_role.py
+  - tests/test_gate_role_resolution.py
+  - docs/governance/18_Enterprise_Pilot_Integration_v1.3.md
+  - changes/CHG-2026-003-private-gate-role-injection/approvals/README.md
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/README.md
+  - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
+  - changes/CHG-2026-003-private-gate-role-injection/design.md
+  - changes/CHG-2026-003-private-gate-role-injection/events.jsonl
+  - changes/CHG-2026-003-private-gate-role-injection/manifest.yaml
+  - changes/CHG-2026-003-private-gate-role-injection/nfr.md
+  - changes/CHG-2026-003-private-gate-role-injection/proposal.md
+  - changes/CHG-2026-003-private-gate-role-injection/release-plan.md
+  - changes/CHG-2026-003-private-gate-role-injection/requirements.md
+  - changes/CHG-2026-003-private-gate-role-injection/state.json
+  - changes/CHG-2026-003-private-gate-role-injection/tasks.md
+  - changes/CHG-2026-003-private-gate-role-injection/test-plan.md
