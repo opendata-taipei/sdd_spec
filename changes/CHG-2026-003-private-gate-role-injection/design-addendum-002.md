@@ -1,6 +1,6 @@
 # CHG-2026-003 Design Addendum 002：Verification-only Bootstrap Boundary
 
-- Status：Proposed — Human Decision Required
+- Status：Accepted for Mode A — Mode B Remains Fail Closed
 - Date：2026-07-15
 - Risk Level：L2
 - Affected Design：DES-WORKFLOW-001、DES-REMEDIATION-001、Migration／Rollback
@@ -78,7 +78,8 @@ Addendum 核准後，Mode A 下一步可執行：
 
 ## Human Decision
 
-`HUMAN_DECISION_REQUIRED`：
+2026-07-15 Human Decision 已核准 Addendum 002：
 
-- 核准 Addendum 002：接受 Mode A verification-only 邊界，允許繼續 negative／cancellation Evidence；同時確認 Mode B 仍 fail closed，這不是 branch protection／CODEOWNERS risk acceptance。
-- 或拒絕 Addendum 002：停止 external workflow tests，先完成 AC-016 controls。
+- 接受 Mode A verification-only 邊界，允許繼續 negative／cancellation Evidence。
+- 確認 Mode B 仍 fail closed；不得合併 Approval、transition state、送 G5 或宣告 Release ready。
+- 此決策不是 branch protection／CODEOWNERS risk acceptance，也不 supersede AC-016。

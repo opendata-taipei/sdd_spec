@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 269,
+  "file_count": 270,
   "files": [
     ".agents/skills/_shared/skill-contract.md",
     ".agents/skills/closure-curator/SKILL.md",
@@ -123,6 +123,7 @@
     "changes/CHG-2026-003-private-gate-role-injection/design.md",
     "changes/CHG-2026-003-private-gate-role-injection/events.jsonl",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-DESIGN-ADDENDUM-001-REVIEW.json",
+    "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-DESIGN-ADDENDUM-002-REVIEW.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROPOSAL-REVIEW.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-NFR-REVIEW.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-REQUIREMENTS-REVIEW.json",
