@@ -76,6 +76,28 @@ class KitManifestTests(unittest.TestCase):
             self.assertTrue(set(runtime_files).isdisjoint(manifest["files"]))
             self.assertEqual(self.run_script(root, "--check").returncode, 0)
 
+    def test_top_level_tmp_is_excluded_and_check_is_read_only(self):
+        with tempfile.TemporaryDirectory(prefix="sdd-manifest-test-") as base:
+            root = self.fixture(Path(base))
+            runtime_files = (
+                "tmp/raw-job.log",
+                "tmp/create-approval/system.txt",
+            )
+            for relative in runtime_files:
+                path = root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("private runtime evidence\n", encoding="utf-8")
+
+            self.assertEqual(self.run_script(root).returncode, 0)
+            manifest_path = root / "KIT_MANIFEST.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            self.assertTrue(set(runtime_files).isdisjoint(manifest["files"]))
+
+            before = manifest_path.read_bytes()
+            result = self.run_script(root, "--check")
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual(manifest_path.read_bytes(), before)
+
     def test_repo_skills_are_included_but_local_skill_cache_is_excluded(self):
         with tempfile.TemporaryDirectory(prefix="sdd-manifest-test-") as base:
             root = self.fixture(Path(base))

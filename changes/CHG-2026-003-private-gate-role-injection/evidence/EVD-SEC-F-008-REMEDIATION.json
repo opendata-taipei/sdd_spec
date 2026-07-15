@@ -1,0 +1,18 @@
+{
+  "evidence_id": "EVD-SEC-F-008-REMEDIATION",
+  "change_id": "CHG-2026-003",
+  "type": "security_scan",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/evidence/SEC-F-008-REMEDIATION.md",
+  "sha256": "a23942b9cc5e237e7cc41006c74a170900730a8e089c22c2057de637acae48d4",
+  "produced_at": "2026-07-15T05:02:39Z",
+  "producer": "Codex verifier",
+  "tool": {
+    "name": "Kit Manifest regression and package verifier",
+    "version": "f66771dd8e01aadce3d1b05d35392e1bed028791"
+  },
+  "requirements": [
+    "SEC-PRIVACY-002",
+    "OPS-REL-003"
+  ],
+  "result": "pass"
+}
