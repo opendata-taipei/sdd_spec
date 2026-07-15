@@ -3,12 +3,12 @@
   "change_id": "CHG-2026-003",
   "type": "security_scan",
   "uri": "changes/CHG-2026-003-private-gate-role-injection/evidence/SEC-F-008-REMEDIATION.md",
-  "sha256": "a23942b9cc5e237e7cc41006c74a170900730a8e089c22c2057de637acae48d4",
-  "produced_at": "2026-07-15T05:02:39Z",
+  "sha256": "f24e5abf9ae3a819c028c2a1551cfdb149924ebaa8df5ba97586609a2a1c5deb",
+  "produced_at": "2026-07-15T08:59:40Z",
   "producer": "Codex verifier",
   "tool": {
     "name": "Kit Manifest regression and package verifier",
-    "version": "f66771dd8e01aadce3d1b05d35392e1bed028791"
+    "version": "8e37e80ac47ab52d25bca243d5233944aa802283"
   },
   "requirements": [
     "SEC-PRIVACY-002",

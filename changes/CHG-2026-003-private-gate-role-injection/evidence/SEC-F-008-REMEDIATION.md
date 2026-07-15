@@ -7,7 +7,7 @@
 - Task：TASK-007
 - Test：TEST-KIT-PRIVACY-001
 - Produced：2026-07-15T05:02:39Z
-- Result：local pass；cross-platform CI pending
+- Result：pass
 
 ## Finding Reproduction
 
@@ -38,13 +38,37 @@ Mode A negative-run raw logs 位於 Git-ignored top-level `tmp/` 時，修正前
 
 Package runtime output僅位於 ignored `dist/sec-f-008-build` 與 `dist/sec-f-008-verified`，不納入 Repository Evidence 或 Kit。
 
+## Cross-platform CI Verification
+
+- Pull Request：[PR #1](https://github.com/opendata-taipei/sdd_spec/pull/1)
+- Quality Gates：[run 29402752423](https://github.com/opendata-taipei/sdd_spec/actions/runs/29402752423)
+- Event：`pull_request`
+- Head commit：`8e37e80ac47ab52d25bca243d5233944aa802283`
+- Started：2026-07-15T08:58:41Z
+- Completed：2026-07-15T08:59:40Z
+- Conclusion：success
+
+| Job | Result | Evidence |
+|---|---|---|
+| `validate-sdd` | success | validators、43 tests、evals、runtime audit、Kit Manifest、portability、compileall steps all success |
+| `package-round-trip (ubuntu-latest)` | success | deterministic build、safe verify／governance、package upload all success |
+| `package-round-trip (windows-latest)` | success | deterministic build、safe verify／governance、package upload all success |
+| `compare-package-checksums` | success | `Require identical Windows and Linux archives` success |
+
+GitHub artifact metadata：
+
+- `starter-kit-Linux`：159,461 bytes；artifact digest `sha256:98b1dc4c31e1db4fe4b813e5c5fe9b69751088939029232b170697a110067205`。
+- `starter-kit-Windows`：159,461 bytes；artifact digest `sha256:906c6fd340838ab4b8795fea021bd610a57440a5af58b0b5c6f3d6af9152e5b8`。
+
+兩個 GitHub artifact digests 是各自外層 artifact archive 的完整性值；跨平台 Starter Kit archive equality 由 comparison job 的成功結果證明，不將不同的外層 digest誤述為內層 ZIP 不一致。
+
 ## Security Disposition
 
-SEC-F-008 required control 已實作並由 regression、current-workspace Manifest 與 local package round-trip 驗證。依 package contract，必須再觀察 GitHub Actions Windows／Linux package jobs 與 checksum comparison 成功，才可將 finding 記為完整 remediation。此 disposition 不接受新的 residual risk，也不改變 SEC-F-006／007 或 Addendum 002 的 Mode B fail-closed boundary。
+SEC-F-008 required control 已由 regression、current-workspace Manifest、local package round-trip，以及 commit-bound Windows／Linux CI 與 checksum comparison 完成驗證。此 disposition 不接受新的 residual risk，也不改變 SEC-F-006／007 或 Addendum 002 的 Mode B fail-closed boundary。
 
 ## Rollback and Remaining Work
 
 - Rollback／forward-fix 依 Addendum 003；不得把 `tmp/` 加回公開 allowlist。
-- Cross-platform Quality Gates 與 checksum comparison 尚待目前 branch push 後執行／觀察。
+- 本 Evidence 更新形成的 follow-up commit 仍須通過 PR checks 後才能合併；不得跳過 PR workflow。
 - TEST-WORKFLOW-002 cancellation run 與其 cleanup／privacy Evidence 仍待執行。
 - 正式 Approval merge、state transition、G5 submission 與 Release readiness仍未授權。
