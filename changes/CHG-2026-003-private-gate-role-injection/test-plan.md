@@ -35,9 +35,9 @@
 | TEST-ROLE-001～003 | Pass | strict parser、failure paths、unique policy role 與 stdout contract |
 | TEST-IDENTITY-001～002 | Pass | HMAC domain separation、canonical pepper、numeric IDs、exact reduced claim |
 | TEST-WORKFLOW-001 | Pass | local synthetic end-to-end pass；protected Environment success run `29354763421` 的 schema-valid single artifact、context binding 與 raw-log privacy scan 已驗證；artifact 未合併且不構成正式 Approval |
-| TEST-WORKFLOW-002 | Partial | local missing／malicious／existing-target paths pass；protected Environment unknown-Gate run `29388919217` 如預期 fail closed、cleanup 與 artifact absence 通過，raw logs 無 privacy finding；real cancellation 尚待完成 |
+| TEST-WORKFLOW-002 | Pass for Addendum 002 scope | local missing／malicious／existing-target paths pass；unknown-Gate run `29388919217` fail closed；run `29407591960` attempt 3 在 pip 階段取消，identity／Approval／upload skipped、always cleanup success、0 current artifact；OIDC-file post-creation hard cancellation仍依 ephemeral runner boundary |
 | TEST-SECURITY-001 | Pass locally | issuer／audience／repository／actor／workflow_ref／run／time／claim mismatch 拒絕 |
-| TEST-PRIVACY-001 | Pass for completed runs | outputs／synthetic artifact／workflow／Kit 未保存 injected mapping、pepper、JWT 或 raw actor ID；success run `29354763421` 與 negative run `29388919217` 的 raw logs／artifact contract 均已掃描；cancellation run 尚待執行 |
+| TEST-PRIVACY-001 | Pass for Addendum 002 scope | success run `29354763421`、negative run `29388919217` 與 cancellation run `29407591960` attempt 3 raw logs／artifact contract 均已掃描，0 login／Email／raw actor ID／mapping／pepper／JWT／Token finding |
 | TEST-KIT-PRIVACY-001 | Pass | exact top-level `tmp/` exclusion、nested runtime fixture、read-only `--check`、current workspace 與 local package round-trip 均通過；Quality Gates run `29402752423` 的 Windows／Linux jobs 與 checksum comparison 成功 |
 | TEST-PERF-001 | Pass | 32 KiB fixture ×100，p95 與 peak RSS assertions 通過 |
 | TEST-REMEDIATION-001 | Partial | reducer reason projection pass；正式 merged Approvals 與 CHG-2026-002 pilot 尚待 TASK-005 |

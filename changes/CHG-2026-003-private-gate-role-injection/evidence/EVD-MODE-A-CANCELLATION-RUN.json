@@ -1,0 +1,19 @@
+{
+  "evidence_id": "EVD-MODE-A-CANCELLATION-RUN",
+  "change_id": "CHG-2026-003",
+  "type": "security_scan",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-MODE-A-CANCELLATION-RUN-29407591960.md",
+  "sha256": "41a6a6e3781e66a3486af00802a60ffb5c258d8fca80ac42c61a2c35291a3ff7",
+  "produced_at": "2026-07-15T10:20:05Z",
+  "producer": "GitHub Actions / Codex verifier",
+  "tool": {
+    "name": "SDD Gate Approval Mode A cancellation verifier",
+    "version": "e09289c70850b01c0a4928f1766338a7f5a419fb"
+  },
+  "requirements": [
+    "REQ-GATE-WORKFLOW-001",
+    "SEC-PRIVACY-002",
+    "OPS-REL-003"
+  ],
+  "result": "pass"
+}

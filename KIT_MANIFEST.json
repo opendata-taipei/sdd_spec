@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 264,
+  "file_count": 266,
   "files": [
     ".agents/skills/_shared/skill-contract.md",
     ".agents/skills/closure-curator/SKILL.md",
@@ -136,9 +136,11 @@
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G4-IMPLEMENTATION-READINESS.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-IMPLEMENTATION-CI-RUN.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-IMPLEMENTATION-LOCAL-VERIFICATION.json",
+    "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-CANCELLATION-RUN.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-NEGATIVE-RUN.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-SEC-F-008-REMEDIATION.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-G1-RUN-29354763421.md",
+    "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-MODE-A-CANCELLATION-RUN-29407591960.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-MODE-A-NEGATIVE-RUN-29388919217.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/QUALITY-CI-RUN-29351982743.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/README.md",
