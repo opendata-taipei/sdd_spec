@@ -8,7 +8,7 @@
 | TASK-004 | FEAT-002, ADR-001 | 更新 private deployment runbook、Feature、ADR 與 public placeholder／pepper rotation 邊界 | TASK-003 | Product Owner | Documentation review | Implemented |
 | TASK-005 | REQ-STATE-REMEDIATION-001, OPS-REL-003 | 先 bootstrap CHG-2026-003，再以 CHG-2026-002 演練正式 Approval merge 與逐步 append-only state remediation | TASK-006, protected Environment ready, Human Approval merge | Change Manager | TEST-REMEDIATION-001, Enterprise validation | Planned |
 | TASK-006 | All in-scope requirements | 執行完整 local governance、failure-path、package round-trip、privacy scan 與跨平台 CI，保存 implementation evidence | TASK-001, TASK-002, TASK-003, TASK-004 | QA Lead | Full baseline, Actions run, artifact hashes | Completed |
-| TASK-007 | SEC-PRIVACY-002, OPS-REL-003 | 依 Addendum 003 修正 Kit builder 排除 top-level `tmp/`，加入 regression test並保存 SEC-F-008 remediation Evidence | Addendum 003 accepted, SEC-F-008 | Engineer / Security Reviewer | TEST-KIT-PRIVACY-001, full baseline, package round-trip | Implemented — local verification pass；cross-platform CI pending |
+| TASK-007 | SEC-PRIVACY-002, OPS-REL-003 | 依 Addendum 003 修正 Kit builder 排除 top-level `tmp/`，加入 regression test並保存 SEC-F-008 remediation Evidence | Addendum 003 accepted, SEC-F-008 | Engineer / Security Reviewer | TEST-KIT-PRIVACY-001, full baseline, package round-trip | Completed — cross-platform CI run `29402752423` pass |
 
 ## Dependency Graph
 
