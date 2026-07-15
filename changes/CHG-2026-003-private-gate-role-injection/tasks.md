@@ -8,6 +8,7 @@
 | TASK-004 | FEAT-002, ADR-001 | 更新 private deployment runbook、Feature、ADR 與 public placeholder／pepper rotation 邊界 | TASK-003 | Product Owner | Documentation review | Implemented |
 | TASK-005 | REQ-STATE-REMEDIATION-001, OPS-REL-003 | 先 bootstrap CHG-2026-003，再以 CHG-2026-002 演練正式 Approval merge 與逐步 append-only state remediation | TASK-006, protected Environment ready, Human Approval merge | Change Manager | TEST-REMEDIATION-001, Enterprise validation | Planned |
 | TASK-006 | All in-scope requirements | 執行完整 local governance、failure-path、package round-trip、privacy scan 與跨平台 CI，保存 implementation evidence | TASK-001, TASK-002, TASK-003, TASK-004 | QA Lead | Full baseline, Actions run, artifact hashes | Completed |
+| TASK-007 | SEC-PRIVACY-002, OPS-REL-003 | 依 Addendum 003 修正 Kit builder 排除 top-level `tmp/`，加入 regression test並保存 SEC-F-008 remediation Evidence | Addendum 003 accepted, SEC-F-008 | Engineer / Security Reviewer | TEST-KIT-PRIVACY-001, full baseline, package round-trip | Implemented — local verification pass；cross-platform CI pending |
 
 ## Dependency Graph
 
@@ -19,6 +20,7 @@ G4_READY
               -> TASK-004 runbook / Feature / ADR sync
                   -> TASK-006 full verification and evidence
                       -> TASK-005 protected-environment bootstrap and remediation pilot
+                  -> TASK-007 SEC-F-008 Kit runtime exclusion remediation
 ```
 
 TASK-001 與 TASK-002 共用 `gate_identity.py` contract，TASK-003 同時修改 Approval validator 與 workflow trust boundary，因此不得以檔案分工名義平行實作。TASK-005 涉及 Human Approval merge 與 protected Environment，是外部治理階段，不與 code implementation 混合。
@@ -33,6 +35,7 @@ TASK-001 與 TASK-002 共用 `gate_identity.py` contract，TASK-003 同時修改
 | 4 | TASK-004 | workflow contract stable | runbook、Feature、ADR 與 public privacy boundary synchronized |
 | 5 | TASK-006 | TASK-001～004 implemented | full local baseline、Windows／Linux package checksum CI、Evidence records available |
 | 6 | TASK-005 | protected Environment ready；formal artifacts Human-reviewed and merged | append-only bootstrap／pilot remediation verified；no G5～G7 bypass |
+| 7 | TASK-007 | Addendum 003 accepted；SEC-F-008 reproduced | `tmp/` excluded、regression／full baseline／package round-trip green；Security handoff |
 
 ## Assumptions, Risks, and Validation
 

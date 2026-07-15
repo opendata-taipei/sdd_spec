@@ -13,6 +13,7 @@ IGNORED_TOP_LEVEL = {
     ".skills",
     "dist",
     "SDD原始來源研究文件包_v1.0",
+    "tmp",
 }
 IGNORED_ROOT_FILES = {"LICENSE", "SDD_規格開發架構.png"}
 IGNORED_RUNTIME_PREFIXES = {

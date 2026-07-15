@@ -23,6 +23,7 @@ declared_files:
   - .github/workflows/sdd-gate-approval.yml
   - scripts/resolve_github_role.py
   - scripts/README.md
+  - scripts/build_kit_manifest.py
   - scripts/gate_identity.py
   - scripts/prepare_gate_identity.py
   - scripts/create_approval.py
@@ -30,6 +31,7 @@ declared_files:
   - scripts/transition_state.py
   - scripts/validate_enterprise.py
   - tests/test_gate_role_resolution.py
+  - tests/test_kit_manifest.py
   - tests/test_gate_identity.py
   - tests/test_gate_approval_workflow.py
   - tests/test_enterprise_controls.py
@@ -39,6 +41,7 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/evidence/README.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/QUALITY-CI-RUN-29351982743.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-G1-RUN-29354763421.md
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-MODE-A-NEGATIVE-RUN-29388919217.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROPOSAL-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-NFR-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G2-REQUIREMENTS-REVIEW.json
@@ -48,13 +51,18 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G4-IMPLEMENTATION-READINESS.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-DESIGN-ADDENDUM-001-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-DESIGN-ADDENDUM-002-REVIEW.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-DESIGN-ADDENDUM-003-REVIEW.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-IMPLEMENTATION-LOCAL-VERIFICATION.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-IMPLEMENTATION-CI-RUN.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROTECTED-WORKFLOW-VERIFICATION.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-NEGATIVE-RUN.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-SEC-F-008-REMEDIATION.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/SEC-F-008-REMEDIATION.md
   - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
   - changes/CHG-2026-003-private-gate-role-injection/design.md
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-001.md
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-002.md
+  - changes/CHG-2026-003-private-gate-role-injection/design-addendum-003.md
   - changes/CHG-2026-003-private-gate-role-injection/events.jsonl
   - changes/CHG-2026-003-private-gate-role-injection/g4-readiness.md
   - changes/CHG-2026-003-private-gate-role-injection/implementation-report.md
