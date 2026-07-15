@@ -50,6 +50,7 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
   - changes/CHG-2026-003-private-gate-role-injection/design.md
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-001.md
+  - changes/CHG-2026-003-private-gate-role-injection/design-addendum-002.md
   - changes/CHG-2026-003-private-gate-role-injection/events.jsonl
   - changes/CHG-2026-003-private-gate-role-injection/g4-readiness.md
   - changes/CHG-2026-003-private-gate-role-injection/implementation-report.md
