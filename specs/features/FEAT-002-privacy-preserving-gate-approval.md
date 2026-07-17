@@ -20,11 +20,13 @@
 - 缺少／錯誤／衝突 mapping 的 failure-path tests。
 - 防止 role map、token、JWT 與不必要身分資料進入 log、artifact、Git 或 Starter Kit package。
 - CHG-2026-002 Gate／Event State remediation pilot。
+- privacy-preserving equivalent merge control的Requirement／Design／Security規劃，以及後續sandbox驗證。
 
 ## Out of Scope
 
 - 公開真實 IAM mapping 或企業組織結構。
 - 自動授與 GitHub Team／Environment／CODEOWNERS 權限。
+- 在公開repository揭露真實Change Manager reviewers、Team membership或IAM mapping。
 - 自動批准 Gate、合併 PR、發布 production 或接受 residual risk。
 - 取代企業 IdP、GitHub branch protection 或審計平台。
 
@@ -35,6 +37,7 @@
 3. mapping 缺失、JSON/schema 錯誤、actor 未授權、role 不合 Gate 或多重 role 時 workflow 非 0 結束且不產生 Approval。
 4. workflow log 與 artifact 不包含原始 mapping、OIDC JWT 或 Access Token。
 5. CHG-2026-002 可在正式 Approval 合併後，以 append-only events 推進至與實際工作相符的合法狀態。
+6. Mode B只有在public ruleset要求指定GitHub App的exact-head check，且private protected Environment完成Change Manager review後，才允許Human合併formal Approval；控制面不可用時fail closed。
 
 ## Security and Privacy Boundaries
 
@@ -43,6 +46,7 @@
 - Runtime mapping 僅在 role-resolution step 最小範圍可見，不得寫入 `$GITHUB_OUTPUT`、artifact 或 diagnostic dump。
 - Repository 只保存 contract、placeholder、縮減 OIDC claims 與 Approval record；不保存原始 token。
 - 缺少可信 configuration 時沒有 public-map fallback，避免誤用 placeholder 或降級授權。
+- formal merge authorization的真實reviewer與IAM mapping只存在private control repository／overlay；public repository只接收無身分資訊、綁定exact head的App check結果。
 
 ## Related Changes
 
@@ -55,6 +59,7 @@
 - Enterprise policy v1.4、Approval／Evidence schemas 與 GitHub OIDC workflow。
 - GitHub protected Environment `sdd-approval` 及由 Human administrator 維護的 private mapping。
 - 本地 synthetic fixtures 與 protected Environment success／unknown-Gate／cancellation Evidence 已完成；Mode B merge controls與正式 remediation pilot尚待執行。
+- Requirement Addendum 001、Design Addendum 004、ADR-002與Security Review Addendum 004 required controls已由HD-004-01～05接受；TASK-008只獲sandbox implementation授權，仍需TASK-009獨立驗證。
 
 ## Risks
 
@@ -64,6 +69,10 @@
 | Role confusion／privilege escalation | strict schema、Gate allowlist、唯一 eligible role、fail closed |
 | Environment 未設定造成阻塞 | preflight error 與部署 runbook，不提供公開 fallback |
 | 把 Approval artifact 當成已合併 | Enterprise validator 只信任 repository 內經 review 合併的 record |
+| required check被同名status spoof或套用stale head | ruleset鎖定expected GitHub App、strict exact-head check、push後重新驗證 |
+| public reviewer設定洩漏IAM關係 | reviewers與mapping留在private control repository；public surface只保留最小digest |
+| App／private control outage | required check維持pending／failure並freeze merge；不提供bypass |
+| GitHub plan不支援private Environment reviewers | SEC-F-016；Mode B fail closed，升級plan或另提等效private control設計 |
 
 ## Release History
 

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Merge Authorization Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "repository_id", "pull_request", "head_sha", "base_sha",
+    "base_ref", "classification", "change_id", "approval_path", "approval_sha256",
+    "target_commit", "policy_sha256", "nonce", "issued_at", "expires_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "merge-authz-request/v1"},
+    "repository_id": {"type": "string", "pattern": "^[1-9][0-9]{0,19}$"},
+    "pull_request": {"type": "integer", "minimum": 1, "maximum": 2147483647},
+    "head_sha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "base_sha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "base_ref": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]{0,254}$"},
+    "classification": {"enum": ["approval", "not_applicable"]},
+    "change_id": {"type": ["string", "null"], "pattern": "^CHG-[0-9]{4}-[0-9]{3,}$"},
+    "approval_path": {"type": ["string", "null"], "pattern": "^changes/[^/]+/approvals/[A-Za-z0-9-]+[.]json$"},
+    "approval_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "target_commit": {"type": ["string", "null"], "pattern": "^[a-f0-9]{40}$"},
+    "policy_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "nonce": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "issued_at": {"type": "integer", "minimum": 1},
+    "expires_at": {"type": "integer", "minimum": 1}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"classification": {"const": "approval"}}},
+      "then": {
+        "properties": {
+          "change_id": {"type": "string"},
+          "approval_path": {"type": "string"},
+          "approval_sha256": {"type": "string"},
+          "target_commit": {"type": "string"}
+        }
+      },
+      "else": {
+        "properties": {
+          "change_id": {"type": "null"},
+          "approval_path": {"type": "null"},
+          "approval_sha256": {"type": "null"},
+          "target_commit": {"type": "null"}
+        }
+      }
+    }
+  ]
+}

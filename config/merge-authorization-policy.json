@@ -1,0 +1,36 @@
+{
+  "schema_version": "merge-authz-policy/v1",
+  "mode": "sandbox-only",
+  "production_activation": false,
+  "check_name": "approval-merge-authorization",
+  "expected_source": "REPLACE_WITH_APPROVED_GITHUB_APP_ID_IN_PRIVATE_OVERLAY",
+  "github_app_permissions": {
+    "metadata": "read",
+    "pull_requests": "read",
+    "contents": "read",
+    "checks": "write"
+  },
+  "forbidden_permissions": ["administration:write", "contents:write", "pull_requests:write"],
+  "ruleset": {
+    "require_pull_request": true,
+    "required_approving_review_count": 1,
+    "dismiss_stale_reviews": true,
+    "require_last_push_approval": true,
+    "strict_required_checks": true,
+    "block_deletion": true,
+    "block_force_push": true,
+    "bypass_actors": []
+  },
+  "private_environment": {
+    "name": "sdd-merge-authorization",
+    "required_reviewers": true,
+    "prevent_self_review": true,
+    "allow_admin_bypass": false
+  },
+  "limits": {
+    "approval_bytes": 65536,
+    "webhook_bytes": 1048576,
+    "authorization_ttl_seconds": 600,
+    "delivery_id_bytes": 128
+  }
+}

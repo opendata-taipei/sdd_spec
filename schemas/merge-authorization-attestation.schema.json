@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Private Merge Authorization Attestation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "request_digest", "decision", "review_policy_result",
+    "control_workflow_ref", "issued_at", "expires_at", "signature"
+  ],
+  "properties": {
+    "schema_version": {"const": "merge-authz-attestation/v1"},
+    "request_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "decision": {"enum": ["approved", "denied"]},
+    "review_policy_result": {"enum": ["passed", "failed"]},
+    "control_workflow_ref": {"type": "string", "minLength": 1, "maxLength": 512},
+    "issued_at": {"type": "integer", "minimum": 1},
+    "expires_at": {"type": "integer", "minimum": 1},
+    "signature": {"type": "string", "pattern": "^hmac-sha256:[a-f0-9]{64}$"}
+  }
+}

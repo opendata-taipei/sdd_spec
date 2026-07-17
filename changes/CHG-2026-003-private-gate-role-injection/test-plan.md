@@ -21,6 +21,11 @@
 | TEST-KIT-PRIVACY-001 | SEC-PRIVACY-002, OPS-REL-003 | Security regression | fixture 與實際 workspace 存在 top-level `tmp/` raw logs | build／`--check` 均排除所有 `tmp/` descendants；check 唯讀；其他 unmanaged public file 仍 fail closed | unittest output／Kit Manifest／package round-trip |
 | TEST-PERF-001 | NFR-PERF-003 | Performance | 32 KiB mapping fixture 重複 100 次 | p95 < 200 ms；process peak RSS < 64 MiB | benchmark report |
 | TEST-REMEDIATION-001 | REQ-STATE-REMEDIATION-001, OPS-REL-003 | Integration | CHG-2026-003 bootstrap 與 CHG-2026-002 正式 G1～G4 Approval 合併後順序 transition | 每 Gate fail closed；event chain append-only、current timestamp、remediation reason、state projection 與 Enterprise validation通過 | repository events／CI log |
+| TEST-MERGE-001 | REQ-MERGE-AUTHZ-001, REQ-APPROVAL-PR-001 | Sandbox integration | 單一合法Approval新增、private Change Manager review、valid attestation與exact current head | 指定App check success；Human merge可用；App不自動merge | sandbox PR／check／private attestation digest |
+| TEST-MERGE-FAIL-001 | REQ-MERGE-AUTHZ-001, REQ-APPROVAL-PR-001, OPS-MERGE-REL-004 | Security failure | fork、mixed diff、modify/delete existing Approval、invalid schema/hash/policy/evidence/role、self approval、head/base/target change、private rejection/cancel/timeout | 每案pending或failure；0 unauthorized success／merge | sandbox negative matrix |
+| TEST-MERGE-REPLAY-001 | OPS-MERGE-REL-004 | Security | invalid webhook HMAC、duplicate delivery、replay nonce、expired attestation、API retry與service outage | constant-time signature validation、idempotent result、stale/replay rejected、outage fail closed | controller test／private audit digest |
+| TEST-RULESET-001 | REQ-MERGE-AUTHZ-001 | Platform security | direct／force push、stale review、同名status由非指定source建立、App check缺少、ruleset bypass檢查 | default branch全部blocked；只有指定App current-head check可滿足condition | ruleset API export／sandbox attempts |
+| TEST-MERGE-PRIVACY-001 | SEC-MERGE-PRIVACY-003 | Privacy | 掃描public PR、review、check、Actions／deployment、artifact、Git diff與Kit package | 0真實login／Email／numeric ID／Team／role mapping／private repository metadata finding | privacy scan report |
 
 ## Exit Criteria
 
@@ -41,5 +46,12 @@
 | TEST-KIT-PRIVACY-001 | Pass | exact top-level `tmp/` exclusion、nested runtime fixture、read-only `--check`、current workspace 與 local package round-trip 均通過；Quality Gates run `29402752423` 的 Windows／Linux jobs 與 checksum comparison 成功 |
 | TEST-PERF-001 | Pass | 32 KiB fixture ×100，p95 與 peak RSS assertions 通過 |
 | TEST-REMEDIATION-001 | Partial | reducer reason projection pass；正式 merged Approvals 與 CHG-2026-002 pilot 尚待 TASK-005 |
+| TEST-MERGE-001 | Partial — local pass | request／attestation schemas、single Approval、exact head/base/target/policy與public output synthetic flow通過；GitHub App／private Environment platform run待external sandbox |
+| TEST-MERGE-FAIL-001 | Partial — local pass | mixed／modified／unsafe Approval、digest mismatch、denied／failed／expired／stale policy paths通過；fork／platform rejection／timeout待external sandbox |
+| TEST-MERGE-REPLAY-001 | Partial — local pass | webhook SHA-256 HMAC、atomic delivery idempotency與mismatch rejection通過；deployed endpoint／service outage待external sandbox |
+| TEST-RULESET-001 | Planned | 目前ruleset audit為0；正式enforcement尚不存在 |
+| TEST-MERGE-PRIVACY-001 | Partial — local pass | public output exact allowlist、private workflow／reviewer marker absence與sandbox placeholder contract通過；GitHub public surfaces scan待external sandbox |
+
+External sandbox note：2026-07-17已建立private repository與`sdd-merge-authorization` Environment，但GitHub UI不提供required reviewers／prevent self-review，故SEC-F-016阻擋TEST-MERGE-001 platform positive path與TASK-009；未建立App、ruleset、secret或formal Approval。
 
 Cross-platform Quality Gates run `29351982743` 已通過 Linux／Windows package round-trip 與 checksum comparison；此結果不改變 protected Environment tests 的 Partial 狀態。

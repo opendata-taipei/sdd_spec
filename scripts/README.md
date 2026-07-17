@@ -21,6 +21,7 @@
 - `portability_check.py`：檢查正式規格是否依賴聊天記錄、私有記憶或工具專用命令。
 - `drift_check.py`：比較 Git Diff 與 `manifest.yaml` 的 `declared_files`。
 - `build_context_pack.py`：建立可供不同 AI／人員載入的工具中立 Context Pack。
+- `merge_authorization.py`：提供Mode B sandbox的single-Approval diff、canonical request、webhook HMAC、private replay／attestation、exact-head verification與public check output allowlist；不含GitHub client或merge權限。
 - `transition_state.py`：依合法狀態機更新 Change State 並記錄 Actor／Evidence。
 
 這些腳本是最低限度的 Starter Validation，不取代正式 Schema Validator、SAST、DAST、Contract Test 或公司既有 CI/CD Controls。

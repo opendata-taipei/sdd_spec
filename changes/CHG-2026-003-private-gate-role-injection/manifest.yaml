@@ -14,13 +14,24 @@ requirements:
   - SEC-IDENTITY-002
   - SEC-PRIVACY-002
   - OPS-REL-003
+  - REQ-MERGE-AUTHZ-001
+  - REQ-APPROVAL-PR-001
+  - SEC-MERGE-PRIVACY-003
+  - OPS-MERGE-REL-004
 declared_files:
   - .gitignore
   - KIT_MANIFEST.json
   - adr/ADR-001-pseudonymous-gate-identity.md
+  - adr/ADR-002-private-merge-authorization-check.md
   - specs/features/_index.yaml
   - specs/features/FEAT-002-privacy-preserving-gate-approval.md
   - .github/workflows/sdd-gate-approval.yml
+  - adapters/github-merge-authorization/README.md
+  - config/merge-authorization-policy.json
+  - schemas/merge-authorization-attestation.schema.json
+  - schemas/merge-authorization-request.schema.json
+  - scripts/merge_authorization.py
+  - tests/test_merge_authorization.py
   - scripts/resolve_github_role.py
   - scripts/README.md
   - scripts/build_kit_manifest.py
@@ -37,6 +48,7 @@ declared_files:
   - tests/test_enterprise_controls.py
   - tests/test_starter_kit_packaging.py
   - docs/governance/18_Enterprise_Pilot_Integration_v1.3.md
+  - docs/governance/19_Private_Merge_Authorization_Sandbox.md
   - changes/CHG-2026-003-private-gate-role-injection/approvals/README.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/README.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/QUALITY-CI-RUN-29351982743.md
@@ -65,15 +77,20 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-001.md
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-002.md
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-003.md
+  - changes/CHG-2026-003-private-gate-role-injection/design-addendum-004.md
+  - changes/CHG-2026-003-private-gate-role-injection/design-addendum-004-decision-packet.md
   - changes/CHG-2026-003-private-gate-role-injection/events.jsonl
   - changes/CHG-2026-003-private-gate-role-injection/g4-readiness.md
   - changes/CHG-2026-003-private-gate-role-injection/implementation-report.md
+  - changes/CHG-2026-003-private-gate-role-injection/implementation-report-addendum-004.md
   - changes/CHG-2026-003-private-gate-role-injection/manifest.yaml
   - changes/CHG-2026-003-private-gate-role-injection/nfr.md
   - changes/CHG-2026-003-private-gate-role-injection/proposal.md
   - changes/CHG-2026-003-private-gate-role-injection/release-plan.md
   - changes/CHG-2026-003-private-gate-role-injection/requirements.md
+  - changes/CHG-2026-003-private-gate-role-injection/requirements-addendum-001.md
   - changes/CHG-2026-003-private-gate-role-injection/security-review.md
+  - changes/CHG-2026-003-private-gate-role-injection/security-review-addendum-004.md
   - changes/CHG-2026-003-private-gate-role-injection/state.json
   - changes/CHG-2026-003-private-gate-role-injection/tasks.md
   - changes/CHG-2026-003-private-gate-role-injection/test-plan.md
