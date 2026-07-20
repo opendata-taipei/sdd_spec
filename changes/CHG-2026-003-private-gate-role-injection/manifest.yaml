@@ -78,9 +78,11 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-NEGATIVE-RUN.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-CANCELLATION-RUN.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-TASK-010-SYNTHETIC-CI.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-TASK-010-POST-MERGE-CI.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-SEC-F-008-REMEDIATION.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/SEC-F-008-REMEDIATION.md
   - changes/CHG-2026-003-private-gate-role-injection/evidence/TASK-010-SYNTHETIC-CI-RUN-29762382847.md
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/TASK-010-POST-MERGE-CI-RUN-29762747845.md
   - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
   - changes/CHG-2026-003-private-gate-role-injection/design.md
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-001.md
@@ -95,6 +97,7 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/implementation-report.md
   - changes/CHG-2026-003-private-gate-role-injection/implementation-report-addendum-004.md
   - changes/CHG-2026-003-private-gate-role-injection/implementation-report-addendum-005.md
+  - changes/CHG-2026-003-private-gate-role-injection/post-merge-drift-report-task-010.md
   - changes/CHG-2026-003-private-gate-role-injection/manifest.yaml
   - changes/CHG-2026-003-private-gate-role-injection/nfr.md
   - changes/CHG-2026-003-private-gate-role-injection/proposal.md

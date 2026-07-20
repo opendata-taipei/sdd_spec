@@ -1,0 +1,19 @@
+{
+  "evidence_id": "EVD-TASK-010-POST-MERGE-CI",
+  "change_id": "CHG-2026-003",
+  "type": "test",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/evidence/TASK-010-POST-MERGE-CI-RUN-29762747845.md",
+  "sha256": "6736ee432554f4471e21df223b5a765b9d796e1156866e243e39de915c101ddb",
+  "produced_at": "2026-07-20T17:13:18Z",
+  "producer": "GitHub Actions",
+  "tool": {
+    "name": "SDD Quality Gates",
+    "version": "c48680a0451a3efad204838222f51b2ef456dbd8"
+  },
+  "requirements": [
+    "REQ-DEVICE-AUTH-001",
+    "OPS-POLL-AUTHZ-005",
+    "SEC-CONTROLLER-CUSTODY-004"
+  ],
+  "result": "pass"
+}

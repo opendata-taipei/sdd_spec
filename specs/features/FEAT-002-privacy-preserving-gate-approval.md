@@ -37,7 +37,7 @@
 3. mapping 缺失、JSON/schema 錯誤、actor 未授權、role 不合 Gate 或多重 role 時 workflow 非 0 結束且不產生 Approval。
 4. workflow log 與 artifact 不包含原始 mapping、OIDC JWT 或 Access Token。
 5. CHG-2026-002 可在正式 Approval 合併後，以 append-only events 推進至與實際工作相符的合法狀態。
-6. Mode B只有在public ruleset要求指定GitHub App的exact-head check，且private protected Environment完成Change Manager review後，才允許Human合併formal Approval；控制面不可用時fail closed。
+6. Mode B只有在public ruleset要求指定GitHub App的exact-head check，且Human authorization由private protected Environment或Addendum 005核准的per-decision device-flow private authorizer完成後，才允許Human合併formal Approval；控制面不可用時fail closed。
 
 ## Security and Privacy Boundaries
 
@@ -60,6 +60,7 @@
 - GitHub protected Environment `sdd-approval` 及由 Human administrator 維護的 private mapping。
 - 本地 synthetic fixtures 與 protected Environment success／unknown-Gate／cancellation Evidence 已完成；Mode B merge controls與正式 remediation pilot尚待執行。
 - Requirement Addendum 001、Design Addendum 004、ADR-002與Security Review Addendum 004 required controls已由HD-004-01～05接受；TASK-008只獲sandbox implementation授權，仍需TASK-009獨立驗證。
+- Requirement Addendum 002、Design Addendum 005、ADR-003與Security Review Addendum 005 required controls已接受；TASK-010只完成provider-neutral synthetic contract，dedicated host／App external path與TASK-011獨立驗證未完成。
 
 ## Risks
 
