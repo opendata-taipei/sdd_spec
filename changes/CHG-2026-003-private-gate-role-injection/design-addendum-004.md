@@ -5,7 +5,7 @@
 - Current Change Risk：L2
 - Mode B Implementation Risk：L3（HD-004-01 accepted）
 - Requirements：REQ-MERGE-AUTHZ-001、REQ-APPROVAL-PR-001、SEC-MERGE-PRIVACY-003、OPS-MERGE-REL-004
-- ADR：ADR-002（Proposed）
+- ADR：ADR-002（Accepted — Sandbox Implementation Boundary）
 - Tasks：TASK-008、TASK-009
 
 ## Decision Summary

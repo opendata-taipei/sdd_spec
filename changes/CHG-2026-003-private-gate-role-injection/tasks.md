@@ -11,6 +11,8 @@
 | TASK-007 | SEC-PRIVACY-002, OPS-REL-003 | 依 Addendum 003 修正 Kit builder 排除 top-level `tmp/`，加入 regression test並保存 SEC-F-008 remediation Evidence | Addendum 003 accepted, SEC-F-008 | Engineer / Security Reviewer | TEST-KIT-PRIVACY-001, full baseline, package round-trip | Completed — cross-platform CI run `29402752423` pass |
 | TASK-008 | REQ-MERGE-AUTHZ-001, REQ-APPROVAL-PR-001, SEC-MERGE-PRIVACY-003, OPS-MERGE-REL-004, ADR-002 | 在 sandbox 建立 least-privilege GitHub App、private protected Environment、canonical attestation與 exact-head required check adapter；不得啟用 production merge | Requirement Addendum 001、Design Addendum 004、ADR-002、Security Addendum 004 approved；L3 decision與credential custody完成 | Engineer / Security Engineer | TEST-MERGE-001, TEST-MERGE-FAIL-001, TEST-MERGE-REPLAY-001 | Blocked externally — local scaffold／private repo／Environment created；SEC-F-016 plan lacks private reviewer protection；App not created |
 | TASK-009 | REQ-MERGE-AUTHZ-001, REQ-APPROVAL-PR-001, SEC-MERGE-PRIVACY-003, OPS-MERGE-REL-004 | 驗證 ruleset source pinning、direct-push／stale-head enforcement、private reviewer controls、public privacy與outage fail-closed，保存可重現Evidence | TASK-008 sandbox implementation；independent Security Reviewer | QA Lead / Security Reviewer | TEST-RULESET-001, TEST-MERGE-PRIVACY-001, full baseline, sandbox evidence | Planned — Mode B remains fail closed |
+| TASK-010 | REQ-DEVICE-AUTH-001, OPS-POLL-AUTHZ-005, SEC-CONTROLLER-CUSTODY-004, ADR-003 | 建立webhook-inactive GitHub App、private managed poller、per-decision device auth與attestation v2 synthetic sandbox | Addendum 002／005、ADR-003、Security Addendum 005 accepted；real App／host path另需dedicated host與role custody | Engineer / Security Engineer | TEST-DEVICE-AUTH-001, TEST-POLL-001, TEST-CONTROLLER-CUSTODY-001 | Implementing — synthetic local contract only；external host/App blocked |
+| TASK-011 | REQ-DEVICE-AUTH-001, OPS-POLL-AUTHZ-005, SEC-CONTROLLER-CUSTODY-004 | 獨立驗證device phishing、separation、stale poll、token privacy、App source與host custody | TASK-010 complete；independent reviewer | QA Lead / Security Reviewer | TEST-DEVICE-SEPARATION-001, TEST-POLL-STALE-001, TEST-DEVICE-PRIVACY-001 | Planned — Mode B remains fail closed |
 
 ## Dependency Graph
 
@@ -25,6 +27,9 @@ G4_READY
                   -> TASK-007 SEC-F-008 Kit runtime exclusion remediation
                       -> TASK-008 private merge authorization sandbox
                           -> TASK-009 independent enforcement / privacy verification
+                      -> SEC-F-016 decision
+                          -> TASK-010 device-flow poller alternative sandbox
+                              -> TASK-011 independent device / host verification
 ```
 
 TASK-001 與 TASK-002 共用 `gate_identity.py` contract，TASK-003 同時修改 Approval validator 與 workflow trust boundary，因此不得以檔案分工名義平行實作。TASK-005 涉及 Human Approval merge 與 protected Environment，是外部治理階段，不與 code implementation 混合。TASK-008／009 引入新的 merge authorization trust boundary，必須先完成 Addendum／ADR／Risk Human Decision；sandbox implementation 與 independent verification 不得由同一 actor自行核准。
@@ -42,6 +47,8 @@ TASK-001 與 TASK-002 共用 `gate_identity.py` contract，TASK-003 同時修改
 | 7 | TASK-007 | Addendum 003 accepted；SEC-F-008 reproduced | `tmp/` excluded、regression／full baseline／package round-trip green；Security handoff |
 | 8 | TASK-008 | Addendum 001／004、ADR-002與Security review approved；L3／custody decision完成 | sandbox App／private control／attestation contract implemented；production未啟用 |
 | 9 | TASK-009 | TASK-008 complete；independent reviewer available | positive／negative／privacy／outage evidence complete；Mode B activation另候Human Decision |
+| 10 | TASK-010 | local contract：Addendum 002／005、ADR-003、Security Addendum 005 accepted；external path：dedicated host／custody ready | provider-neutral synthetic contract完成後，待host／App sandbox handoff；production未啟用 |
+| 11 | TASK-011 | TASK-010 complete；independent reviewer available | device／poll／host／privacy Evidence complete；Mode B activation另候Human Decision |
 
 ## Assumptions, Risks, and Validation
 

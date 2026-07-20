@@ -1,6 +1,6 @@
 # GitHub Merge Authorization Adapter Contract
 
-本Adapter是TASK-008的public sandbox scaffold，不是已部署的GitHub App，也不保存App ID、private repository、reviewer或IAM mapping。
+本Adapter涵蓋TASK-008 webhook path及TASK-010 polling／device-flow synthetic contract，不是已部署的GitHub App，也不保存App ID、private repository、reviewer或IAM mapping。
 
 ## Trust Boundary
 
@@ -8,6 +8,8 @@
 - `scripts/merge_authorization.py`負責strict diff classification、canonical request、replay、private attestation verification與public output allowlist。
 - private control repository的protected Environment負責真實Change Manager review、separation-of-duties及attestation key access。
 - public ruleset負責要求指定App來源的`approval-merge-authorization`；Adapter不得merge PR。
+
+TASK-010 alternative以`scripts/device_flow_authorization.py`執行private numeric identity、營運角色namespace、separation、attestation v2及fresh poll驗證。它不執行OAuth transport；private managed adapter只能把fresh `GET /user` numeric ID交給此module，不能傳入login、Email、device code或token。
 
 ## Required GitHub App Configuration
 
@@ -20,7 +22,19 @@ Repository permissions：
 | Contents | Read |
 | Checks | Write |
 
-不得授與Administration write、Contents write、Pull requests write或Members read。訂閱`pull_request` opened／reopened／synchronize事件；merge queue不在TASK-008 sandbox相容範圍。
+不得授與Administration write、Contents write、Pull requests write或Members read。TASK-008 path訂閱`pull_request` opened／reopened／synchronize事件；TASK-010 path保持webhook inactive並採bounded poll。兩者都不包含merge queue。
+
+## TASK-010 Poll／Device Contract
+
+1. controller使用public policy的bounded interval、timeout、retry及backoff fresh-read open PR。
+2. Approval request建立新的device session；Human自行開啟trusted GitHub device頁面，code不得經chat、public log或CLI argument傳送。
+3. OAuth adapter取得短期user token後只呼叫`GET /user`，將numeric ID交給`authorize_device_identity`；不得保存refresh token，token不得落disk或進diagnostics。
+4. private role map使用`merge-authorization/v1` namespace。`change_manager`不得同時為`app_operator`、`secret_custodian`或`security_reviewer`，且不會被加入G1～G7 enterprise role policy。
+5. `FreshDeviceSessionStore`拒絕所有device session reuse；identity、mapping及session只輸出opaque digest。
+6. controller建立attestation v2，綁定request、artifact、configuration、App、installation scope、identity decision及device session digest。
+7. 寫check前呼叫`verify_device_attestation`重新驗證head、base、policy、installation及controller context；任一變更要求新的device flow。
+
+本Repository只提供synthetic provider-neutral contract。真實GitHub App registration、private key、device-flow transport及managed-host部署必須在dedicated private boundary完成。
 
 ## Request Handling
 
@@ -58,4 +72,4 @@ Public check UI可顯示：
 
 ## Mode Boundary
 
-本Adapter不代表SEC-F-009～015已closed。GitHub App installation、ruleset source pinning、protected Environment review與negative platform runs必須由TASK-009獨立驗證；在此之前Mode B維持fail closed。
+本Adapter不代表SEC-F-009～022已closed。GitHub App installation、ruleset source pinning、managed-host custody與negative platform runs必須由TASK-011獨立驗證；在此之前Mode B維持fail closed。
