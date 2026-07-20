@@ -39,6 +39,7 @@ SEC-F-013、016～022保持Open。local tests只證明synthetic contract failure
 - portability、compileall與CHG-2026-003 drift check：通過，0 unspeced drift。
 - Starter Kit build／safe verify／governance round trip：通過；final archive digest由handoff另行回報，避免把package自身hash寫回package造成循環。
 - Pull Request [#3](https://github.com/opendata-taipei/sdd_spec/pull/3) 的 Quality Gates run [29762382847](https://github.com/opendata-taipei/sdd_spec/actions/runs/29762382847) 綁定commit `fb27bcbb0dc25ebe1b4c6c8272e58f7f347369fe`；validate、Windows／Linux package round trip及checksum comparison均success。
+- PR #3已由Human於2026-07-20T17:11:59Z合併；merge commit `c48680a0451a3efad204838222f51b2ef456dbd8`的main push Quality Gates run [29762747845](https://github.com/opendata-taipei/sdd_spec/actions/runs/29762747845)亦為4／4 success。此合併不構成production Mode B、formal Approval merge或TASK-011 sign-off。
 
 ## Rollback
 
