@@ -2,6 +2,7 @@
   "schema_version": "merge-authz-policy/v1",
   "mode": "sandbox-only",
   "production_activation": false,
+  "trigger_mode": "poll-device-flow",
   "check_name": "approval-merge-authorization",
   "expected_source": "REPLACE_WITH_APPROVED_GITHUB_APP_ID_IN_PRIVATE_OVERLAY",
   "github_app_permissions": {
@@ -23,9 +24,27 @@
   },
   "private_environment": {
     "name": "sdd-merge-authorization",
+    "active": false,
     "required_reviewers": true,
     "prevent_self_review": true,
     "allow_admin_bypass": false
+  },
+  "private_authorization": {
+    "role_namespace": "merge-authorization/v1",
+    "eligible_authorizer_roles": ["change_manager"],
+    "incompatible_authorizer_roles": [
+      "app_operator", "secret_custodian", "security_reviewer"
+    ],
+    "identity_key": "github_numeric_user_id",
+    "mapping_location": "private-overlay-only",
+    "fresh_device_flow_per_decision": true,
+    "refresh_token_storage": false
+  },
+  "polling": {
+    "interval_seconds": 60,
+    "api_timeout_seconds": 15,
+    "max_retries": 3,
+    "max_backoff_seconds": 300
   },
   "limits": {
     "approval_bytes": 65536,

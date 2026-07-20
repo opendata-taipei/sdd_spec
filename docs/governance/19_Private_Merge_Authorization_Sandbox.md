@@ -85,3 +85,21 @@ Developer可執行synthetic positive、invalid HMAC、duplicate/replay、mixed d
 handoff只包含sandbox identifiers的opaque digest、App permission/ruleset export digest、request／attestation fixtures、test log hash與public privacy scan。獨立Security Reviewer／QA須另執行TEST-RULESET-001、TEST-MERGE-FAIL-001、TEST-MERGE-REPLAY-001及TEST-MERGE-PRIVACY-001。
 
 TASK-009完成前SEC-F-009～015保持Open，Mode B保持fail closed；production activation需新的Human Decision。
+
+## 8. Addendum 005：Webhook-Inactive Device-Flow Alternative
+
+GitHub plan不具private Environment protection時，TASK-010可依ADR-003在synthetic sandbox改用webhook-inactive App與private managed poller，但不得把本機interactive workstation視為dedicated host：
+
+1. private policy使用獨立`merge-authorization/v1`角色namespace；唯一eligible role為`change_manager`，不得擴增G1～G7 enterprise approver roles。
+2. 每個Approval decision建立全新device-flow session；只接受fresh authenticated `/user` numeric ID，不接受login、Email、PR review或manual flag。
+3. authorizer不得是PR author、Approval actor、App Operator、Secret Custodian或TASK-011 Security Reviewer。
+4. attestation v2綁定request、device session、identity decision、controller artifact、configuration、App及installation scope digest。
+5. 每次寫check前fresh-read head、base、policy與installation；stale、timeout、audit outage或controller context變更全部fail closed。
+
+本地可執行：
+
+```bash
+python -m unittest discover -s tests -p test_device_flow_authorization.py -v
+```
+
+此測試只驗證provider-neutral synthetic contract，不驗證真實device OAuth、App key custody、dedicated host或GitHub ruleset。上述外部控制需TASK-011獨立驗證；SEC-F-013、016～022保持Open，Mode B保持fail closed。

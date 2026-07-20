@@ -73,6 +73,7 @@
 | public reviewer設定洩漏IAM關係 | reviewers與mapping留在private control repository；public surface只保留最小digest |
 | App／private control outage | required check維持pending／failure並freeze merge；不提供bypass |
 | GitHub plan不支援private Environment reviewers | SEC-F-016；Mode B fail closed，升級plan或另提等效private control設計 |
+| device-flow alternative把信任移到private host | Addendum 005已接受且只授權TASK-010 synthetic sandbox；dedicated host、L3 custody與TASK-011 independent review仍未完成，Mode B fail closed |
 
 ## Release History
 

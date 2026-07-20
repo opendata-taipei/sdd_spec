@@ -2,8 +2,8 @@
 
 ## Entry Criteria
 
-- [x] Requirement 與 Design 已核准
-- [x] Protected GitHub Environment 與 private data 可用；local synthetic fixtures 已可用
+- [x] Requirement／Design及Addendum 005已依各自bounded scope核准
+- [x] local synthetic fixtures可用；protected GitHub Environment不可用並記為SEC-F-016，private credential／mapping未放入workspace
 
 ## Test Cases
 
@@ -26,6 +26,12 @@
 | TEST-MERGE-REPLAY-001 | OPS-MERGE-REL-004 | Security | invalid webhook HMAC、duplicate delivery、replay nonce、expired attestation、API retry與service outage | constant-time signature validation、idempotent result、stale/replay rejected、outage fail closed | controller test／private audit digest |
 | TEST-RULESET-001 | REQ-MERGE-AUTHZ-001 | Platform security | direct／force push、stale review、同名status由非指定source建立、App check缺少、ruleset bypass檢查 | default branch全部blocked；只有指定App current-head check可滿足condition | ruleset API export／sandbox attempts |
 | TEST-MERGE-PRIVACY-001 | SEC-MERGE-PRIVACY-003 | Privacy | 掃描public PR、review、check、Actions／deployment、artifact、Git diff與Kit package | 0真實login／Email／numeric ID／Team／role mapping／private repository metadata finding | privacy scan report |
+| TEST-DEVICE-AUTH-001 | REQ-DEVICE-AUTH-001 | Sandbox integration | fresh device flow、numeric identity、unique private role與current Approval request | approved attestation v2；token erased；App exact-head check success | private run digest／public check |
+| TEST-DEVICE-SEPARATION-001 | REQ-DEVICE-AUTH-001 | Security | reviewer等於PR author／Approval actor、unknown／ambiguous role、denied／expired／substituted session | 全部failure；0 success check | private negative matrix |
+| TEST-POLL-001 | OPS-POLL-AUTHZ-005 | Integration | open PR polling、non-Approval與Approval classification、bounded retry | explicit not_applicable或pending auth；no skipped success | poll audit digest |
+| TEST-POLL-STALE-001 | OPS-POLL-AUTHZ-005 | Security | device flow期間head／base／policy／installation改變 | stale request invalid；需要new device flow | sandbox runs |
+| TEST-CONTROLLER-CUSTODY-001 | SEC-CONTROLLER-CUSTODY-004 | Security | host、service account、secret store、artifact/config digest、rotation/revocation review | L3 custody controls pass；任一缺失fail closed | private host review digest |
+| TEST-DEVICE-PRIVACY-001 | SEC-CONTROLLER-CUSTODY-004, SEC-MERGE-PRIVACY-003 | Privacy | public／private logs、process args、crash/audit artifacts掃描 | 0 device code／token／raw ID／mapping／key finding on public surfaces | privacy report |
 
 ## Exit Criteria
 
@@ -51,7 +57,15 @@
 | TEST-MERGE-REPLAY-001 | Partial — local pass | webhook SHA-256 HMAC、atomic delivery idempotency與mismatch rejection通過；deployed endpoint／service outage待external sandbox |
 | TEST-RULESET-001 | Planned | 目前ruleset audit為0；正式enforcement尚不存在 |
 | TEST-MERGE-PRIVACY-001 | Partial — local pass | public output exact allowlist、private workflow／reviewer marker absence與sandbox placeholder contract通過；GitHub public surfaces scan待external sandbox |
+| TEST-DEVICE-AUTH-001 | Partial — local synthetic pass | numeric identity、unique private Change Manager、attestation v2 schema與exact-head public check通過；真實GitHub device OAuth／App待dedicated host |
+| TEST-DEVICE-SEPARATION-001 | Partial — local synthetic pass | PR author／Approval actor、unknown／missing／incompatible role與device session reuse均拒絕；TASK-011 independent run未授權 |
+| TEST-POLL-001 | Partial — local synthetic pass | bounded public policy、Approval contract與explicit non-Approval classification已有回歸；真實API polling／rate limit未執行 |
+| TEST-POLL-STALE-001 | Partial — local synthetic pass | head／base／policy／installation／controller artifact／config／App digest或expiry變更均fail closed；platform run待TASK-011 |
+| TEST-CONTROLLER-CUSTODY-001 | Blocked externally | dedicated managed host、service account、secret store與role custody尚未提供；目前workstation不合格 |
+| TEST-DEVICE-PRIVACY-001 | Partial — local synthetic pass | public attestation/check allowlist不含numeric ID、mapping、role、device code或token；private host/process/crash scan待TASK-011 |
 
 External sandbox note：2026-07-17已建立private repository與`sdd-merge-authorization` Environment，但GitHub UI不提供required reviewers／prevent self-review，故SEC-F-016阻擋TEST-MERGE-001 platform positive path與TASK-009；未建立App、ruleset、secret或formal Approval。
+
+Addendum 005 note：2026-07-17 Human只授權TASK-010 synthetic sandbox。SEC-F-013、016～022保持Open；未建立webhook-inactive App、未產生或下載private key、未執行真實device flow，production Mode B、formal Approval merge、TASK-005與TASK-011 sign-off均未授權。
 
 Cross-platform Quality Gates run `29351982743` 已通過 Linux／Windows package round-trip 與 checksum comparison；此結果不改變 protected Environment tests 的 Partial 狀態。

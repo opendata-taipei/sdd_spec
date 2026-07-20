@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDD Device-Flow Merge Authorization Attestation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "request_digest", "decision",
+    "authorization_policy_result", "trigger_mode",
+    "controller_artifact_digest", "configuration_digest", "app_id_digest",
+    "installation_scope_digest", "identity_decision_digest",
+    "device_session_digest", "issued_at", "expires_at", "signature"
+  ],
+  "properties": {
+    "schema_version": {"const": "merge-authz-attestation/v2"},
+    "request_digest": {"$ref": "#/$defs/digest"},
+    "decision": {"enum": ["approved", "denied"]},
+    "authorization_policy_result": {"enum": ["passed", "failed"]},
+    "trigger_mode": {"const": "poll-device-flow"},
+    "controller_artifact_digest": {"$ref": "#/$defs/digest"},
+    "configuration_digest": {"$ref": "#/$defs/digest"},
+    "app_id_digest": {"$ref": "#/$defs/digest"},
+    "installation_scope_digest": {"$ref": "#/$defs/digest"},
+    "identity_decision_digest": {"$ref": "#/$defs/digest"},
+    "device_session_digest": {"$ref": "#/$defs/digest"},
+    "issued_at": {"type": "integer", "minimum": 1},
+    "expires_at": {"type": "integer", "minimum": 1},
+    "signature": {"type": "string", "pattern": "^hmac-sha256:[a-f0-9]{64}$"}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
