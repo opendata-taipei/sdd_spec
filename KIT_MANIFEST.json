@@ -1,7 +1,7 @@
 {
   "name": "SDD Agentic Company Starter Kit",
   "version": "1.5.0-dev",
-  "file_count": 288,
+  "file_count": 290,
   "files": [
     ".agents/skills/_shared/skill-contract.md",
     ".agents/skills/closure-curator/SKILL.md",
@@ -146,12 +146,14 @@
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-CANCELLATION-RUN.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-NEGATIVE-RUN.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-SEC-F-008-REMEDIATION.json",
+    "changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-TASK-010-SYNTHETIC-CI.json",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-G1-RUN-29354763421.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-MODE-A-CANCELLATION-RUN-29407591960.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/GATE-MODE-A-NEGATIVE-RUN-29388919217.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/QUALITY-CI-RUN-29351982743.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/README.md",
     "changes/CHG-2026-003-private-gate-role-injection/evidence/SEC-F-008-REMEDIATION.md",
+    "changes/CHG-2026-003-private-gate-role-injection/evidence/TASK-010-SYNTHETIC-CI-RUN-29762382847.md",
     "changes/CHG-2026-003-private-gate-role-injection/g4-readiness.md",
     "changes/CHG-2026-003-private-gate-role-injection/implementation-report-addendum-004.md",
     "changes/CHG-2026-003-private-gate-role-injection/implementation-report-addendum-005.md",

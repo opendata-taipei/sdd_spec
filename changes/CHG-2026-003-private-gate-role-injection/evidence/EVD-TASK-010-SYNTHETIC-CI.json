@@ -1,0 +1,19 @@
+{
+  "evidence_id": "EVD-TASK-010-SYNTHETIC-CI",
+  "change_id": "CHG-2026-003",
+  "type": "test",
+  "uri": "changes/CHG-2026-003-private-gate-role-injection/evidence/TASK-010-SYNTHETIC-CI-RUN-29762382847.md",
+  "sha256": "70308271c14e1aa99f83f99da76988da95a5c3cd5f00ea0cd9c53455eabd3f55",
+  "produced_at": "2026-07-20T17:07:21Z",
+  "producer": "GitHub Actions",
+  "tool": {
+    "name": "SDD Quality Gates",
+    "version": "fb27bcbb0dc25ebe1b4c6c8272e58f7f347369fe"
+  },
+  "requirements": [
+    "REQ-DEVICE-AUTH-001",
+    "OPS-POLL-AUTHZ-005",
+    "SEC-CONTROLLER-CUSTODY-004"
+  ],
+  "result": "pass"
+}

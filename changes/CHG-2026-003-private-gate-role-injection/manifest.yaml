@@ -77,8 +77,10 @@ declared_files:
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-G1-PROTECTED-WORKFLOW-VERIFICATION.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-NEGATIVE-RUN.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-MODE-A-CANCELLATION-RUN.json
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-TASK-010-SYNTHETIC-CI.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/EVD-SEC-F-008-REMEDIATION.json
   - changes/CHG-2026-003-private-gate-role-injection/evidence/SEC-F-008-REMEDIATION.md
+  - changes/CHG-2026-003-private-gate-role-injection/evidence/TASK-010-SYNTHETIC-CI-RUN-29762382847.md
   - changes/CHG-2026-003-private-gate-role-injection/closure-report.md
   - changes/CHG-2026-003-private-gate-role-injection/design.md
   - changes/CHG-2026-003-private-gate-role-injection/design-addendum-001.md
